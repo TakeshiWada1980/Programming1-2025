@@ -111,8 +111,10 @@ class="toc-section-number">5</span> Python実行開発環境 GoogleColab</a>
 <li><a href="#ノートブックの新規作成"
 id="toc-ノートブックの新規作成"><span
 class="toc-section-number">5.1</span> ノートブックの新規作成</a></li>
-<li><a href="#設定" id="toc-設定"><span
-class="toc-section-number">5.2</span> 設定</a></li>
+<li><a href="#設定-aiアシスタントの設定"
+id="toc-設定-aiアシスタントの設定"><span
+class="toc-section-number">5.2</span> 設定
+(AIアシスタントの設定)</a></li>
 <li><a href="#コードセルの追加と編集実行"
 id="toc-コードセルの追加と編集実行"><span
 class="toc-section-number">5.3</span>
@@ -129,10 +131,12 @@ class="toc-section-number">6</span> 文字列の扱いと出力</a>
 <ul>
 <li><a href="#文字の出力1" id="toc-文字の出力1"><span
 class="toc-section-number">6.1</span> 文字の出力1</a></li>
+<li><a href="#geminiの活用法" id="toc-geminiの活用法"><span
+class="toc-section-number">6.2</span> Geminiの活用法</a></li>
 <li><a href="#文字の出力2" id="toc-文字の出力2"><span
-class="toc-section-number">6.2</span> 文字の出力2</a></li>
+class="toc-section-number">6.3</span> 文字の出力2</a></li>
 <li><a href="#aiアシスト" id="toc-aiアシスト"><span
-class="toc-section-number">6.3</span> AIアシスト</a></li>
+class="toc-section-number">6.4</span> AIアシスト</a></li>
 </ul></li>
 <li><a href="#演習" id="toc-演習"><span
 class="toc-section-number">7</span> 演習</a>
@@ -574,7 +578,10 @@ class="toc-section-number">7.1</span> 参考</a></li>
       はネット接続が必須ですが、ウェブブラウザだけで簡単にプログラミングをはじめることができます。</p>
       <ul>
       <li><a
-      href="https://colab.research.google.com/?hl=ja">GoogleColaboratory</a></li>
+      href="https://colab.research.google.com/?hl=ja">GoogleColaboratory</a>
+      <ul>
+      <li>ブラウザにブックマークしておいてください。</li>
+      </ul></li>
       </ul>
       <p>また、6月下旬には <a
       href="https://takeshiwada1980.github.io/Programming1-2024/lecture09.html">個人PCの内部にもPythonの実行・開発環境を構築</a>し、VSCode
@@ -609,8 +616,9 @@ class="toc-section-number">7.1</span> 参考</a></li>
       Python NodeBook と覚えるとよいです。Interactive
       は「対話的」という意味です。</li>
       </ul>
-      <h2 data-number="5.2" id="設定"><span
-      class="header-section-number">5.2</span> 設定</h2>
+      <h2 data-number="5.2" id="設定-aiアシスタントの設定"><span
+      class="header-section-number">5.2</span> 設定
+      (AIアシスタントの設定)</h2>
       <p>AIアシスタントを次のように設定してください
       (必要に応じてカスタマイズしてください)。</p>
       <figure>
@@ -664,8 +672,15 @@ class="toc-section-number">7.1</span> 参考</a></li>
       <li>どんな検索キーワードと共に調べるとよいのか。</li>
       </ul></li>
       </ul>
-      <h2 data-number="6.2" id="文字の出力2"><span
-      class="header-section-number">6.2</span> 文字の出力2</h2>
+      <h2 data-number="6.2" id="geminiの活用法"><span
+      class="header-section-number">6.2</span> Geminiの活用法</h2>
+      <ul>
+      <li>チャットタブの位置変更</li>
+      <li>チャットウィンドウからのコード挿入</li>
+      <li>コードセルからの呼び出し</li>
+      </ul>
+      <h2 data-number="6.3" id="文字の出力2"><span
+      class="header-section-number">6.3</span> 文字の出力2</h2>
       <ul>
       <li>標準出力 (Standard Output)</li>
       <li><code>print</code> 関数</li>
@@ -684,8 +699,8 @@ class="toc-section-number">7.1</span> 参考</a></li>
       <div class="sourceCode" id="cb7"><pre
       class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\U0001F923</span><span class="st">&#39;</span>)</span></code></pre></div>
-      <h2 data-number="6.3" id="aiアシスト"><span
-      class="header-section-number">6.3</span> AIアシスト</h2>
+      <h2 data-number="6.4" id="aiアシスト"><span
+      class="header-section-number">6.4</span> AIアシスト</h2>
       <figure>
       <img src="figs/01/colab_03.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
@@ -698,7 +713,7 @@ class="toc-section-number">7.1</span> 参考</a></li>
       class="header-section-number">7</span> 演習</h1>
       <p>次のような文字列を出力するPythonプログラムを GoogleColab. 環境
       (Jupyter環境)
-      で作成して、その動作について検証せよ。ただし、異なるアプローチによるプログラムを2つ以上作成すること。</p>
+      で作成して、その動作について検証してください。ただし、異なるアプローチによるプログラムを2つ以上作成してください。</p>
       <pre><code>Pythonの世界へようこそ！
 Hello, World!
 これがあなたの最初のプログラム出力です。</code></pre>
