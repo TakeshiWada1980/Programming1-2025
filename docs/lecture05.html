@@ -457,6 +457,22 @@ FFFF</code></pre>
       class="math inline">\(10.0\)</span> 未満の実数を得たい場合は
       <code>r.random() * 20 - 10</code> のようにします。</li>
       </ul>
+      <p>実行例（表示は適切にカスタマイズしてください。）</p>
+      <pre><code> 1回目 n=0.995 --&gt; N
+ 2回目 n=0.903 --&gt; N
+ 3回目 n=0.107 --&gt; R
+ 4回目 n=0.340 --&gt; N
+ 5回目 n=0.236 --&gt; R
+ 6回目 n=0.318 --&gt; N
+ 7回目 n=0.922 --&gt; N
+ 8回目 n=0.562 --&gt; N
+ 9回目 n=0.895 --&gt; N
+10回目 n=0.867 --&gt; N
+11回目 n=0.184 --&gt; R
+12回目 n=0.070 --&gt; R
+13回目 n=0.803 --&gt; N
+14回目 n=0.650 --&gt; N
+15回目 n=0.542 --&gt; N</code></pre>
       <h2 data-number="6.2" id="等しいという条件の与え方"><span
       class="header-section-number">6.2</span>
       「等しい」という条件の与え方</h2>
@@ -467,16 +483,16 @@ FFFF</code></pre>
       class="masked"><code>=</code> ではなく <code>==</code> </span>
       が使われることに<strong>強く注意してください</strong>。</p>
       <p>実例で考えてみましょう。次のプログラムは、サイコロを投げて<strong>3の目がでたときだけ</strong>「あたりの処理」をするものです。実際に実行して、確認してみてください。</p>
-      <div class="sourceCode" id="cb15"
+      <div class="sourceCode" id="cb16"
       data-caption="「3」の目が「あたり」のサイコロ"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="im">import</span> random</span>
-<span id="cb15-3"><a href="#cb15-3"></a>dice_num <span class="op">=</span> random.randint(<span class="dv">1</span>,<span class="dv">6</span>)</span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="bu">print</span>(<span class="ss">f&#39;サイコロで「</span><span class="sc">{</span>dice_num<span class="sc">}</span><span class="ss">」がでました。&#39;</span>)</span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="cf">if</span> dice_num <span class="op">==</span> <span class="dv">3</span>: <span class="co">#「=」ではなく「==」であることに注意</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a>  <span class="bu">print</span>(<span class="st">&#39;やったね!!&#39;</span>)</span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="bu">print</span>(<span class="st">&#39;また挑戦してね。&#39;</span>) </span>
-<span id="cb15-8"><a href="#cb15-8"></a><span class="co"># ↑インデントしないことで、if文が抜けたあとの処理であることを与えている</span></span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="im">import</span> random</span>
+<span id="cb16-3"><a href="#cb16-3"></a>dice_num <span class="op">=</span> random.randint(<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="bu">print</span>(<span class="ss">f&#39;サイコロで「</span><span class="sc">{</span>dice_num<span class="sc">}</span><span class="ss">」がでました。&#39;</span>)</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="cf">if</span> dice_num <span class="op">==</span> <span class="dv">3</span>: <span class="co">#「=」ではなく「==」であることに注意</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="bu">print</span>(<span class="st">&#39;やったね!!&#39;</span>)</span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="bu">print</span>(<span class="st">&#39;また挑戦してね。&#39;</span>) </span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="co"># ↑インデントしないことで、if文が抜けたあとの処理であることを与えている</span></span></code></pre></div>
       <ul>
       <li><code>dice_num == 3</code> を <code>dice_num == '3'</code>
       とすると、どのような問題が生じるか考えてください。</li>
@@ -488,16 +504,16 @@ FFFF</code></pre>
       <strong>数値</strong>だけではなく「文字列」に対して使用できます。以下に例を示します
       (元ネタ <a
       href="https://dqfan527.xsrv.jp/2023/10/23/hahaoya/">FC版DQ3</a>)。</p>
-      <div class="sourceCode" id="cb16" data-caption="文字列の比較"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb16-2"><a href="#cb16-2"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;名前を入力してください。&#39;</span>)</span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="cf">if</span> name <span class="op">==</span> <span class="st">&#39;ロト&#39;</span> :</span>
-<span id="cb16-4"><a href="#cb16-4"></a>  <span class="bu">print</span>(<span class="st">&#39;その名前は使用できません。&#39;</span>)</span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="cf">else</span> :</span>
-<span id="cb16-6"><a href="#cb16-6"></a>  <span class="bu">print</span>(<span class="ss">f&#39;&#39;&#39;「おはよう、</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">。</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="ss">もう あさですよ。</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a><span class="ss">きょうは とても たいせつなひ。</span></span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> が はじめて おしろに いくひ だったでしょ。」&#39;&#39;&#39;</span>)</span></code></pre></div>
+      <div class="sourceCode" id="cb17" data-caption="文字列の比較"><pre
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb17-2"><a href="#cb17-2"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;名前を入力してください。&#39;</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="cf">if</span> name <span class="op">==</span> <span class="st">&#39;ロト&#39;</span> :</span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="bu">print</span>(<span class="st">&#39;その名前は使用できません。&#39;</span>)</span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="cf">else</span> :</span>
+<span id="cb17-6"><a href="#cb17-6"></a>  <span class="bu">print</span>(<span class="ss">f&#39;&#39;&#39;「おはよう、</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">。</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="ss">もう あさですよ。</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="ss">きょうは とても たいせつなひ。</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> が はじめて おしろに いくひ だったでしょ。」&#39;&#39;&#39;</span>)</span></code></pre></div>
       <p>以前に助言したように「教わったこと」を<strong>教わった範囲で無条件に受け入れて終わるのではなく</strong>、<span
       class="masked">好奇心や興味関心を持って、発展的に「試す」「調べる」「考える」に取り組めるように</span>
       なってください。</p>
@@ -528,15 +544,15 @@ FFFF</code></pre>
       <p>条件を満たすときは<strong>何もせず</strong>、条件を<strong>満たさないときだけ何かをしたい</strong>という処理はどのように記述すればよいか考えてみてください。</p>
       <p>例えば「サイコロを投げて6の目がでたときは<strong>何もせず</strong>、それ以外のときは「<strong>はずれ</strong>」を表示する」という処理を考えます。</p>
       <p>まず、はじめに思い浮かぶのは、次のようなプログラムになると思います。<strong>実際に実行して結果を確認</strong>してください。</p>
-      <div class="sourceCode" id="cb17"
+      <div class="sourceCode" id="cb18"
       data-caption="問題のある実装"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="im">import</span> random</span>
-<span id="cb17-3"><a href="#cb17-3"></a>dice_num <span class="op">=</span> random.randint(<span class="dv">1</span>,<span class="dv">6</span>)</span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="cf">if</span> dice_num <span class="op">==</span> <span class="dv">6</span>:</span>
-<span id="cb17-5"><a href="#cb17-5"></a>  <span class="co"># 何も処理しない</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a><span class="cf">else</span>:</span>
-<span id="cb17-7"><a href="#cb17-7"></a>  <span class="bu">print</span>(<span class="st">&#39;はずれ&#39;</span>)</span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="im">import</span> random</span>
+<span id="cb18-3"><a href="#cb18-3"></a>dice_num <span class="op">=</span> random.randint(<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="cf">if</span> dice_num <span class="op">==</span> <span class="dv">6</span>:</span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="co"># 何も処理しない</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="cf">else</span>:</span>
+<span id="cb18-7"><a href="#cb18-7"></a>  <span class="bu">print</span>(<span class="st">&#39;はずれ&#39;</span>)</span></code></pre></div>
       <p>実行すると<span
       class="masked">エラーとなることが確認できたと思います
       (実行以前の段階で赤の波線が表示されていることにも気づきましたか?)
@@ -547,66 +563,66 @@ FFFF</code></pre>
       必ず何らかの文を書く必要があります。そこで、何もしない文として
       <code>pass</code> が存在します。</p>
       <p>上記のプログラムは次のように書き換えることで実行可能となります。</p>
-      <div class="sourceCode" id="cb18"
+      <div class="sourceCode" id="cb19"
       data-caption="passで問題を回避した実装"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="im">import</span> random</span>
-<span id="cb18-3"><a href="#cb18-3"></a>dice_num <span class="op">=</span> random.randint(<span class="dv">1</span>,<span class="dv">6</span>)</span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="cf">if</span> dice_num <span class="op">==</span> <span class="dv">6</span>:</span>
-<span id="cb18-5"><a href="#cb18-5"></a>  <span class="cf">pass</span> <span class="co"># 何も処理しない。</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="cf">else</span>:</span>
-<span id="cb18-7"><a href="#cb18-7"></a>  <span class="bu">print</span>(<span class="st">&#39;はずれ&#39;</span>)</span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="im">import</span> random</span>
+<span id="cb19-3"><a href="#cb19-3"></a>dice_num <span class="op">=</span> random.randint(<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="cf">if</span> dice_num <span class="op">==</span> <span class="dv">6</span>:</span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="cf">pass</span> <span class="co"># 何も処理しない。</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="cf">else</span>:</span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="bu">print</span>(<span class="st">&#39;はずれ&#39;</span>)</span></code></pre></div>
       <p>しかし、<code>pass</code>
       を使用しなくとも、次のように書き換えることで、より短いコードで同じ処理を実現することができます。繰返しになりますが、プログラムは
       <span class="masked">自然言語 (日本語)
       で与えられた手順どおりに実装する</span>
       のではなく（アタマを柔らかくして）<strong>必要に応じて手順やロジックを工夫して実装すること</strong>が重要です。</p>
-      <div class="sourceCode" id="cb19"
+      <div class="sourceCode" id="cb20"
       data-caption="賢い実装 (可読性も向上)"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="im">import</span> random</span>
-<span id="cb19-3"><a href="#cb19-3"></a>dice_num <span class="op">=</span> random.randint(<span class="dv">1</span>,<span class="dv">6</span>)</span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="cf">if</span> dice_num <span class="op">!=</span> <span class="dv">6</span>:</span>
-<span id="cb19-5"><a href="#cb19-5"></a>  <span class="bu">print</span>(<span class="st">&#39;はずれ&#39;</span>)</span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="im">import</span> random</span>
+<span id="cb20-3"><a href="#cb20-3"></a>dice_num <span class="op">=</span> random.randint(<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="cf">if</span> dice_num <span class="op">!=</span> <span class="dv">6</span>:</span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="bu">print</span>(<span class="st">&#39;はずれ&#39;</span>)</span></code></pre></div>
       <h2 data-number="6.5" id="elif節"><span
       class="header-section-number">6.5</span> elif節</h2>
       <p><code>elif</code>
       は、次のような処理をしたい場合に利用します。</p>
-      <div class="sourceCode" id="cb20"
-      data-caption="elifを使用した実装"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb20-2"><a href="#cb20-2"></a>score <span class="op">=</span> <span class="dv">85</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="bu">print</span>(<span class="ss">f&#39;試験が </span><span class="sc">{</span>score<span class="sc">}</span><span class="ss"> 点だったので「&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span> :</span>
-<span id="cb20-5"><a href="#cb20-5"></a>  <span class="bu">print</span>(<span class="st">&#39;秀&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">80</span> :</span>
-<span id="cb20-7"><a href="#cb20-7"></a>  <span class="bu">print</span>(<span class="st">&#39;優&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb20-8"><a href="#cb20-8"></a><span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">70</span> :</span>
-<span id="cb20-9"><a href="#cb20-9"></a>  <span class="bu">print</span>(<span class="st">&#39;良&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb20-10"><a href="#cb20-10"></a><span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">60</span> :</span>
-<span id="cb20-11"><a href="#cb20-11"></a>  <span class="bu">print</span>(<span class="st">&#39;可&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb20-12"><a href="#cb20-12"></a><span class="cf">else</span> :</span>
-<span id="cb20-13"><a href="#cb20-13"></a>  <span class="bu">print</span>(<span class="st">&#39;不可&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb20-14"><a href="#cb20-14"></a><span class="bu">print</span>(<span class="ss">f&#39;」の評価です。&#39;</span>)</span></code></pre></div>
-      <p>上記のプログラム (<code>elif</code>を利用) と下記のプログラム
-      (<code>if</code>を利用)
-      では<strong>処理の流れが変わってきます</strong>。実行時に、<strong>どのように違いがでるのかについて考えてみてください</strong>。</p>
       <div class="sourceCode" id="cb21"
-      data-caption="elifを使用しない実装"><pre
+      data-caption="elifを使用した実装"><pre
       class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
 <span id="cb21-2"><a href="#cb21-2"></a>score <span class="op">=</span> <span class="dv">85</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a><span class="bu">print</span>(<span class="ss">f&#39;試験が </span><span class="sc">{</span>score<span class="sc">}</span><span class="ss"> 点だったので「&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
 <span id="cb21-4"><a href="#cb21-4"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span> :</span>
 <span id="cb21-5"><a href="#cb21-5"></a>  <span class="bu">print</span>(<span class="st">&#39;秀&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb21-6"><a href="#cb21-6"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">80</span> :</span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">80</span> :</span>
 <span id="cb21-7"><a href="#cb21-7"></a>  <span class="bu">print</span>(<span class="st">&#39;優&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb21-8"><a href="#cb21-8"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">70</span> :</span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">70</span> :</span>
 <span id="cb21-9"><a href="#cb21-9"></a>  <span class="bu">print</span>(<span class="st">&#39;良&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb21-10"><a href="#cb21-10"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">60</span> :</span>
+<span id="cb21-10"><a href="#cb21-10"></a><span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">60</span> :</span>
 <span id="cb21-11"><a href="#cb21-11"></a>  <span class="bu">print</span>(<span class="st">&#39;可&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
 <span id="cb21-12"><a href="#cb21-12"></a><span class="cf">else</span> :</span>
 <span id="cb21-13"><a href="#cb21-13"></a>  <span class="bu">print</span>(<span class="st">&#39;不可&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
 <span id="cb21-14"><a href="#cb21-14"></a><span class="bu">print</span>(<span class="ss">f&#39;」の評価です。&#39;</span>)</span></code></pre></div>
+      <p>上記のプログラム (<code>elif</code>を利用) と下記のプログラム
+      (<code>if</code>を利用)
+      では<strong>処理の流れが変わってきます</strong>。実行時に、<strong>どのように違いがでるのかについて考えてみてください</strong>。</p>
+      <div class="sourceCode" id="cb22"
+      data-caption="elifを使用しない実装"><pre
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb22-2"><a href="#cb22-2"></a>score <span class="op">=</span> <span class="dv">85</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="bu">print</span>(<span class="ss">f&#39;試験が </span><span class="sc">{</span>score<span class="sc">}</span><span class="ss"> 点だったので「&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span> :</span>
+<span id="cb22-5"><a href="#cb22-5"></a>  <span class="bu">print</span>(<span class="st">&#39;秀&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">80</span> :</span>
+<span id="cb22-7"><a href="#cb22-7"></a>  <span class="bu">print</span>(<span class="st">&#39;優&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">70</span> :</span>
+<span id="cb22-9"><a href="#cb22-9"></a>  <span class="bu">print</span>(<span class="st">&#39;良&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">60</span> :</span>
+<span id="cb22-11"><a href="#cb22-11"></a>  <span class="bu">print</span>(<span class="st">&#39;可&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="cf">else</span> :</span>
+<span id="cb22-13"><a href="#cb22-13"></a>  <span class="bu">print</span>(<span class="st">&#39;不可&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb22-14"><a href="#cb22-14"></a><span class="bu">print</span>(<span class="ss">f&#39;」の評価です。&#39;</span>)</span></code></pre></div>
       <h3 data-number="6.5.1" id="演習3-10分"><span
       class="header-section-number">6.5.1</span> 演習3
       (<i class="fa-solid fa-stopwatch"></i> 10分)</h3>
@@ -614,13 +630,13 @@ FFFF</code></pre>
       class="math inline">\(10\%\)</span>の確率で「<strong>SR</strong>」、<span
       class="math inline">\(25\%\)</span>の確率で「<strong>R</strong>」、<span
       class="math inline">\(65\%\)</span>の確率で「<strong>N</strong>」という文字列を出力するプログラムを作成してください。次のプログラムに追記する形で作成してください。</p>
-      <div class="sourceCode" id="cb22"
+      <div class="sourceCode" id="cb23"
       data-caption="15連ガチャのシミュレーション2 SR/R/N"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="im">import</span> random <span class="im">as</span> r</span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">15</span>): <span class="co"># 15連ガチャ</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a>  n <span class="op">=</span> r.random() <span class="co"># 0.0以上1.0未満の実数値</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>  <span class="bu">print</span>(<span class="ss">f&#39;</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">:2}</span><span class="ss">回目 n=</span><span class="sc">{</span>n<span class="sc">:.3f}</span><span class="ss">&#39;</span>) <span class="co"># 乱数確認用</span></span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="im">import</span> random <span class="im">as</span> r</span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">15</span>): <span class="co"># 15連ガチャ</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  n <span class="op">=</span> r.random() <span class="co"># 0.0以上1.0未満の実数値</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="bu">print</span>(<span class="ss">f&#39;</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">:2}</span><span class="ss">回目 n=</span><span class="sc">{</span>n<span class="sc">:.3f}</span><span class="ss">&#39;</span>) <span class="co"># 乱数確認用</span></span></code></pre></div>
       <ul>
       <li><code>elif</code>節を利用するとシンプルに記述できます。</li>
       </ul>
@@ -631,24 +647,24 @@ FFFF</code></pre>
       <p>基本的には何階層にも入れ子にすることができますが、深いネストを構築すると
       <span class="masked">可読性や保守性が著しく低下</span>
       します。深いネストが構成されないようにプログラムを工夫してください。</p>
-      <div class="sourceCode" id="cb23"
+      <div class="sourceCode" id="cb24"
       data-caption="条件分岐のネスト（入れ子）"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># @title 点Aは第何象限に存在？ { run: &quot;auto&quot; }</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb23-3"><a href="#cb23-3"></a>Ax <span class="op">=</span> <span class="dv">3</span>   <span class="co">#@param {type:&quot;slider&quot;, min:-5, max:5, step:1}</span></span>
-<span id="cb23-4"><a href="#cb23-4"></a>Ay <span class="op">=</span> <span class="op">-</span><span class="dv">5</span>  <span class="co">#@param {type:&quot;slider&quot;, min:-5, max:5, step:1}</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a><span class="bu">print</span>(<span class="ss">f&#39;点A (</span><span class="sc">{</span>Ax<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>Ay<span class="sc">}</span><span class="ss">) は第&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb23-6"><a href="#cb23-6"></a><span class="cf">if</span> Ay <span class="op">&gt;</span> <span class="dv">0</span> :</span>
-<span id="cb23-7"><a href="#cb23-7"></a>  <span class="cf">if</span> Ax <span class="op">&gt;</span> <span class="dv">0</span> :</span>
-<span id="cb23-8"><a href="#cb23-8"></a>    <span class="bu">print</span>(<span class="st">&#39;1&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb23-9"><a href="#cb23-9"></a>  <span class="cf">else</span> :</span>
-<span id="cb23-10"><a href="#cb23-10"></a>    <span class="bu">print</span>(<span class="st">&#39;2&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)   </span>
-<span id="cb23-11"><a href="#cb23-11"></a><span class="cf">else</span> :</span>
-<span id="cb23-12"><a href="#cb23-12"></a>  <span class="cf">if</span> Ax <span class="op">&lt;</span> <span class="dv">0</span> :</span>
-<span id="cb23-13"><a href="#cb23-13"></a>    <span class="bu">print</span>(<span class="st">&#39;3&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb23-14"><a href="#cb23-14"></a>  <span class="cf">else</span> :</span>
-<span id="cb23-15"><a href="#cb23-15"></a>    <span class="bu">print</span>(<span class="st">&#39;4&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)   </span>
-<span id="cb23-16"><a href="#cb23-16"></a><span class="bu">print</span>(<span class="st">&#39;象限に存在します。&#39;</span>)</span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># @title 点Aは第何象限に存在？ { run: &quot;auto&quot; }</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb24-3"><a href="#cb24-3"></a>Ax <span class="op">=</span> <span class="dv">3</span>   <span class="co">#@param {type:&quot;slider&quot;, min:-5, max:5, step:1}</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>Ay <span class="op">=</span> <span class="op">-</span><span class="dv">5</span>  <span class="co">#@param {type:&quot;slider&quot;, min:-5, max:5, step:1}</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="bu">print</span>(<span class="ss">f&#39;点A (</span><span class="sc">{</span>Ax<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>Ay<span class="sc">}</span><span class="ss">) は第&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="cf">if</span> Ay <span class="op">&gt;</span> <span class="dv">0</span> :</span>
+<span id="cb24-7"><a href="#cb24-7"></a>  <span class="cf">if</span> Ax <span class="op">&gt;</span> <span class="dv">0</span> :</span>
+<span id="cb24-8"><a href="#cb24-8"></a>    <span class="bu">print</span>(<span class="st">&#39;1&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb24-9"><a href="#cb24-9"></a>  <span class="cf">else</span> :</span>
+<span id="cb24-10"><a href="#cb24-10"></a>    <span class="bu">print</span>(<span class="st">&#39;2&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)   </span>
+<span id="cb24-11"><a href="#cb24-11"></a><span class="cf">else</span> :</span>
+<span id="cb24-12"><a href="#cb24-12"></a>  <span class="cf">if</span> Ax <span class="op">&lt;</span> <span class="dv">0</span> :</span>
+<span id="cb24-13"><a href="#cb24-13"></a>    <span class="bu">print</span>(<span class="st">&#39;3&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb24-14"><a href="#cb24-14"></a>  <span class="cf">else</span> :</span>
+<span id="cb24-15"><a href="#cb24-15"></a>    <span class="bu">print</span>(<span class="st">&#39;4&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)   </span>
+<span id="cb24-16"><a href="#cb24-16"></a><span class="bu">print</span>(<span class="st">&#39;象限に存在します。&#39;</span>)</span></code></pre></div>
       <ul>
       <li>注意:<strong>第01行目</strong> のように
       <code>{ run: "auto" }</code> を設定していても、初回は
@@ -662,50 +678,50 @@ FFFF</code></pre>
       を<strong>使わずに構成</strong>すると、以下のように
       <strong>深いネストが形成されてしまいます</strong>
       (可読性・保守性の低いプログラムになってしまうことが分かると思います)。</p>
-      <div class="sourceCode" id="cb24"
+      <div class="sourceCode" id="cb25"
       data-caption="elifを使わずに秀/優/良/可/不可を判定（深いネスト）"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># @title 点数→評価変換 { run: &quot;auto&quot; }</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb24-3"><a href="#cb24-3"></a>score <span class="op">=</span> <span class="dv">45</span> <span class="co">#@param {type:&quot;slider&quot;, min:0, max:100, step:1}</span></span>
-<span id="cb24-4"><a href="#cb24-4"></a><span class="bu">print</span>(<span class="ss">f&#39;試験が </span><span class="sc">{</span>score<span class="sc">}</span><span class="ss"> 点だったので「&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb24-5"><a href="#cb24-5"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span> :</span>
-<span id="cb24-6"><a href="#cb24-6"></a>  <span class="bu">print</span>(<span class="st">&#39;秀&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb24-7"><a href="#cb24-7"></a><span class="cf">else</span> :</span>
-<span id="cb24-8"><a href="#cb24-8"></a>  <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">80</span> :</span>
-<span id="cb24-9"><a href="#cb24-9"></a>     <span class="bu">print</span>(<span class="st">&#39;優&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb24-10"><a href="#cb24-10"></a>  <span class="cf">else</span> :</span>
-<span id="cb24-11"><a href="#cb24-11"></a>    <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">70</span> :</span>
-<span id="cb24-12"><a href="#cb24-12"></a>      <span class="bu">print</span>(<span class="st">&#39;良&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb24-13"><a href="#cb24-13"></a>    <span class="cf">else</span> :</span>
-<span id="cb24-14"><a href="#cb24-14"></a>      <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">60</span> :</span>
-<span id="cb24-15"><a href="#cb24-15"></a>        <span class="bu">print</span>(<span class="st">&#39;可&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb24-16"><a href="#cb24-16"></a>      <span class="cf">else</span> :</span>
-<span id="cb24-17"><a href="#cb24-17"></a>        <span class="bu">print</span>(<span class="st">&#39;不可&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb24-18"><a href="#cb24-18"></a><span class="bu">print</span>(<span class="ss">f&#39;」の評価です。&#39;</span>)</span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># @title 点数→評価変換 { run: &quot;auto&quot; }</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb25-3"><a href="#cb25-3"></a>score <span class="op">=</span> <span class="dv">45</span> <span class="co">#@param {type:&quot;slider&quot;, min:0, max:100, step:1}</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="bu">print</span>(<span class="ss">f&#39;試験が </span><span class="sc">{</span>score<span class="sc">}</span><span class="ss"> 点だったので「&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span> :</span>
+<span id="cb25-6"><a href="#cb25-6"></a>  <span class="bu">print</span>(<span class="st">&#39;秀&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="cf">else</span> :</span>
+<span id="cb25-8"><a href="#cb25-8"></a>  <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">80</span> :</span>
+<span id="cb25-9"><a href="#cb25-9"></a>     <span class="bu">print</span>(<span class="st">&#39;優&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb25-10"><a href="#cb25-10"></a>  <span class="cf">else</span> :</span>
+<span id="cb25-11"><a href="#cb25-11"></a>    <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">70</span> :</span>
+<span id="cb25-12"><a href="#cb25-12"></a>      <span class="bu">print</span>(<span class="st">&#39;良&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb25-13"><a href="#cb25-13"></a>    <span class="cf">else</span> :</span>
+<span id="cb25-14"><a href="#cb25-14"></a>      <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">60</span> :</span>
+<span id="cb25-15"><a href="#cb25-15"></a>        <span class="bu">print</span>(<span class="st">&#39;可&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb25-16"><a href="#cb25-16"></a>      <span class="cf">else</span> :</span>
+<span id="cb25-17"><a href="#cb25-17"></a>        <span class="bu">print</span>(<span class="st">&#39;不可&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb25-18"><a href="#cb25-18"></a><span class="bu">print</span>(<span class="ss">f&#39;」の評価です。&#39;</span>)</span></code></pre></div>
       <h2 data-number="6.7" id="and条件"><span
       class="header-section-number">6.7</span> AND条件</h2>
       <p><strong><em>AND条件</em></strong> は <code>and</code>
       演算子を使って評価することができます。</p>
-      <div class="sourceCode" id="cb25"
-      data-caption="AND条件を使用.py"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb25-2"><a href="#cb25-2"></a>x <span class="op">=</span> <span class="dv">0</span>  <span class="co"># 点AのX座標</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a>y <span class="op">=</span> <span class="dv">0</span>  <span class="co"># 点AのY座標</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="cf">if</span> x<span class="op">==</span><span class="dv">0</span> <span class="kw">and</span> y<span class="op">==</span><span class="dv">0</span> :  <span class="co">#「and演算子」を利用</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>  <span class="bu">print</span>(<span class="st">&#39;点Aは原点上に存在します&#39;</span>)</span>
-<span id="cb25-6"><a href="#cb25-6"></a><span class="cf">else</span> :</span>
-<span id="cb25-7"><a href="#cb25-7"></a>  <span class="bu">print</span>(<span class="st">&#39;点Aは原点以外に存在します&#39;</span>)</span></code></pre></div>
-      <p>上記と同じ処理をするプログラムは、次のように<strong>条件分岐構文のネストでも構成</strong>できます。ただし、可読性・保守性に問題があることを実感してください。</p>
       <div class="sourceCode" id="cb26"
-      data-caption="AND条件を使用せずに同じ処理するプログラム.py"><pre
+      data-caption="AND条件を使用.py"><pre
       class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb26-2"><a href="#cb26-2"></a>x <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a>y <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="cf">if</span> x<span class="op">==</span><span class="dv">0</span> :</span>
-<span id="cb26-5"><a href="#cb26-5"></a>  <span class="cf">if</span> y<span class="op">==</span><span class="dv">0</span> :</span>
-<span id="cb26-6"><a href="#cb26-6"></a>    <span class="bu">print</span>(<span class="st">&#39;点Aは原点上に存在します&#39;</span>)</span>
-<span id="cb26-7"><a href="#cb26-7"></a><span class="cf">else</span> :</span>
-<span id="cb26-8"><a href="#cb26-8"></a>  <span class="bu">print</span>(<span class="st">&#39;点Aは原点以外に存在します&#39;</span>)</span></code></pre></div>
+<span id="cb26-2"><a href="#cb26-2"></a>x <span class="op">=</span> <span class="dv">0</span>  <span class="co"># 点AのX座標</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>y <span class="op">=</span> <span class="dv">0</span>  <span class="co"># 点AのY座標</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="cf">if</span> x<span class="op">==</span><span class="dv">0</span> <span class="kw">and</span> y<span class="op">==</span><span class="dv">0</span> :  <span class="co">#「and演算子」を利用</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>  <span class="bu">print</span>(<span class="st">&#39;点Aは原点上に存在します&#39;</span>)</span>
+<span id="cb26-6"><a href="#cb26-6"></a><span class="cf">else</span> :</span>
+<span id="cb26-7"><a href="#cb26-7"></a>  <span class="bu">print</span>(<span class="st">&#39;点Aは原点以外に存在します&#39;</span>)</span></code></pre></div>
+      <p>上記と同じ処理をするプログラムは、次のように<strong>条件分岐構文のネストでも構成</strong>できます。ただし、可読性・保守性に問題があることを実感してください。</p>
+      <div class="sourceCode" id="cb27"
+      data-caption="AND条件を使用せずに同じ処理するプログラム.py"><pre
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb27-2"><a href="#cb27-2"></a>x <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>y <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="cf">if</span> x<span class="op">==</span><span class="dv">0</span> :</span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="cf">if</span> y<span class="op">==</span><span class="dv">0</span> :</span>
+<span id="cb27-6"><a href="#cb27-6"></a>    <span class="bu">print</span>(<span class="st">&#39;点Aは原点上に存在します&#39;</span>)</span>
+<span id="cb27-7"><a href="#cb27-7"></a><span class="cf">else</span> :</span>
+<span id="cb27-8"><a href="#cb27-8"></a>  <span class="bu">print</span>(<span class="st">&#39;点Aは原点以外に存在します&#39;</span>)</span></code></pre></div>
       <p><code>and</code>
       演算子では、<code>x==0 and y==0 and z==0</code> のように
       <strong>3つ以上の条件</strong> についての <strong>AND
@@ -721,15 +737,15 @@ FFFF</code></pre>
       class="header-section-number">6.8</span> OR条件</h2>
       <p>OR条件は <code>or</code>
       演算子を使って評価することができます。</p>
-      <div class="sourceCode" id="cb27"
+      <div class="sourceCode" id="cb28"
       data-caption="OR条件を使用.py"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb27-2"><a href="#cb27-2"></a>x <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a>y <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb27-4"><a href="#cb27-4"></a><span class="cf">if</span> x<span class="op">==</span><span class="dv">0</span> <span class="kw">or</span> y<span class="op">==</span><span class="dv">0</span> :  <span class="co">#「or演算子」を利用</span></span>
-<span id="cb27-5"><a href="#cb27-5"></a>  <span class="bu">print</span>(<span class="st">&#39;点AはX軸上もしくはY軸上に存在します&#39;</span>)</span>
-<span id="cb27-6"><a href="#cb27-6"></a><span class="cf">else</span> :</span>
-<span id="cb27-7"><a href="#cb27-7"></a>  <span class="bu">print</span>(<span class="st">&#39;点AはX軸上にもY軸上にも存在しません&#39;</span>)</span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb28-2"><a href="#cb28-2"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>y <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="cf">if</span> x<span class="op">==</span><span class="dv">0</span> <span class="kw">or</span> y<span class="op">==</span><span class="dv">0</span> :  <span class="co">#「or演算子」を利用</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>  <span class="bu">print</span>(<span class="st">&#39;点AはX軸上もしくはY軸上に存在します&#39;</span>)</span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="cf">else</span> :</span>
+<span id="cb28-7"><a href="#cb28-7"></a>  <span class="bu">print</span>(<span class="st">&#39;点AはX軸上にもY軸上にも存在しません&#39;</span>)</span></code></pre></div>
       <hr />
       <p>なお、<strong>文字列の等価性の比較</strong>は、<code>card</code>
       を変数とすれば <code>card == 'UR'</code> のようにします。</p>
@@ -743,29 +759,29 @@ FFFF</code></pre>
       </ul>
       <p>以下に、文字列の比較と、ここまでに学習した内容の応用
       (単なる組み合わせ) を示します。</p>
-      <div class="sourceCode" id="cb28"
+      <div class="sourceCode" id="cb29"
       data-caption="カードガチャ.py"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="im">import</span> random </span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="im">import</span> time</span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="im">from</span> IPython.display <span class="im">import</span> clear_output</span>
-<span id="cb28-5"><a href="#cb28-5"></a></span>
-<span id="cb28-6"><a href="#cb28-6"></a>cards <span class="op">=</span> [<span class="st">&#39;UR&#39;</span>,<span class="st">&#39;SSR&#39;</span>,<span class="st">&#39;SR&#39;</span>,<span class="st">&#39;S&#39;</span>] <span class="co"># 排出リスト</span></span>
-<span id="cb28-7"><a href="#cb28-7"></a>card <span class="op">=</span> random.choice(cards)   <span class="co"># リストからランダムに1枚を取得</span></span>
-<span id="cb28-8"><a href="#cb28-8"></a></span>
-<span id="cb28-9"><a href="#cb28-9"></a><span class="co"># 演出</span></span>
-<span id="cb28-10"><a href="#cb28-10"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\033</span><span class="st">[34m&#39;</span> <span class="op">+</span> <span class="st">&#39;祈れ、念じろ！&#39;</span> <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\033</span><span class="st">[0m&#39;</span>,end<span class="op">=</span><span class="st">&#39; &#39;</span>)</span>
-<span id="cb28-11"><a href="#cb28-11"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
-<span id="cb28-12"><a href="#cb28-12"></a>  <span class="bu">print</span>(<span class="st">&#39;.&#39;</span>, end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb28-13"><a href="#cb28-13"></a>  time.sleep(<span class="fl">0.5</span>)       <span class="co"># 0.5秒</span></span>
-<span id="cb28-14"><a href="#cb28-14"></a>clear_output()          <span class="co"># 出力をクリア</span></span>
-<span id="cb28-15"><a href="#cb28-15"></a></span>
-<span id="cb28-16"><a href="#cb28-16"></a><span class="co"># 指定のカードを得たときに追加メッセージ</span></span>
-<span id="cb28-17"><a href="#cb28-17"></a><span class="cf">if</span> card <span class="op">==</span> <span class="st">&#39;UR&#39;</span> <span class="kw">or</span> card <span class="op">==</span> <span class="st">&#39;SSR&#39;</span> :</span>
-<span id="cb28-18"><a href="#cb28-18"></a>  <span class="bu">print</span>(<span class="ss">f&#39;🎉おめでとうございます！&#39;</span>, end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb28-19"><a href="#cb28-19"></a></span>
-<span id="cb28-20"><a href="#cb28-20"></a><span class="co"># 共通メッセージ</span></span>
-<span id="cb28-21"><a href="#cb28-21"></a><span class="bu">print</span>(<span class="ss">f&#39;「</span><span class="sc">{</span>card<span class="sc">}</span><span class="ss">」をゲット！&#39;</span>)</span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="im">import</span> random </span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="im">import</span> time</span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="im">from</span> IPython.display <span class="im">import</span> clear_output</span>
+<span id="cb29-5"><a href="#cb29-5"></a></span>
+<span id="cb29-6"><a href="#cb29-6"></a>cards <span class="op">=</span> [<span class="st">&#39;UR&#39;</span>,<span class="st">&#39;SSR&#39;</span>,<span class="st">&#39;SR&#39;</span>,<span class="st">&#39;S&#39;</span>] <span class="co"># 排出リスト</span></span>
+<span id="cb29-7"><a href="#cb29-7"></a>card <span class="op">=</span> random.choice(cards)   <span class="co"># リストからランダムに1枚を取得</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a></span>
+<span id="cb29-9"><a href="#cb29-9"></a><span class="co"># 演出</span></span>
+<span id="cb29-10"><a href="#cb29-10"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\033</span><span class="st">[34m&#39;</span> <span class="op">+</span> <span class="st">&#39;祈れ、念じろ！&#39;</span> <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\033</span><span class="st">[0m&#39;</span>,end<span class="op">=</span><span class="st">&#39; &#39;</span>)</span>
+<span id="cb29-11"><a href="#cb29-11"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb29-12"><a href="#cb29-12"></a>  <span class="bu">print</span>(<span class="st">&#39;.&#39;</span>, end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb29-13"><a href="#cb29-13"></a>  time.sleep(<span class="fl">0.5</span>)       <span class="co"># 0.5秒</span></span>
+<span id="cb29-14"><a href="#cb29-14"></a>clear_output()          <span class="co"># 出力をクリア</span></span>
+<span id="cb29-15"><a href="#cb29-15"></a></span>
+<span id="cb29-16"><a href="#cb29-16"></a><span class="co"># 指定のカードを得たときに追加メッセージ</span></span>
+<span id="cb29-17"><a href="#cb29-17"></a><span class="cf">if</span> card <span class="op">==</span> <span class="st">&#39;UR&#39;</span> <span class="kw">or</span> card <span class="op">==</span> <span class="st">&#39;SSR&#39;</span> :</span>
+<span id="cb29-18"><a href="#cb29-18"></a>  <span class="bu">print</span>(<span class="ss">f&#39;🎉おめでとうございます！&#39;</span>, end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb29-19"><a href="#cb29-19"></a></span>
+<span id="cb29-20"><a href="#cb29-20"></a><span class="co"># 共通メッセージ</span></span>
+<span id="cb29-21"><a href="#cb29-21"></a><span class="bu">print</span>(<span class="ss">f&#39;「</span><span class="sc">{</span>card<span class="sc">}</span><span class="ss">」をゲット！&#39;</span>)</span></code></pre></div>
       <p><strong>第04行目</strong> と <strong>第14行目</strong> の
       <code>clear_output</code>
       のみ新規の要素です。<code>random.choice</code> は <a
@@ -779,23 +795,23 @@ FFFF</code></pre>
       <p>Pythonでは、次に示す <code>15 &lt;= temp &lt;= 25</code>
       のように <strong><em>数値範囲の条件</em></strong>
       を与えることができます。</p>
-      <div class="sourceCode" id="cb29"
-      data-caption="数値範囲条件の与え方1.py"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb29-2"><a href="#cb29-2"></a>temp <span class="op">=</span> <span class="dv">20</span> <span class="co"># 温度 (Temperature)</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="cf">if</span> <span class="dv">15</span> <span class="op">&lt;=</span> temp <span class="op">&lt;=</span> <span class="dv">25</span> : <span class="co"># tempが15以上25以下のとき「真」となる</span></span>
-<span id="cb29-4"><a href="#cb29-4"></a>  <span class="bu">print</span>(<span class="st">&#39;正常です&#39;</span>)</span>
-<span id="cb29-5"><a href="#cb29-5"></a><span class="cf">else</span> :</span>
-<span id="cb29-6"><a href="#cb29-6"></a>  <span class="bu">print</span>(<span class="st">&#39;正常範囲外です&#39;</span>)</span></code></pre></div>
-      <p>他のプログラミング言語では、通常、次のように<strong>AND条件を使って上記のような条件の評価</strong>をします。</p>
       <div class="sourceCode" id="cb30"
-      data-caption="数値範囲条件の与え方2.py"><pre
+      data-caption="数値範囲条件の与え方1.py"><pre
       class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb30-2"><a href="#cb30-2"></a>temp <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="cf">if</span> temp <span class="op">&gt;=</span> <span class="dv">15</span> <span class="kw">and</span> temp <span class="op">&lt;=</span> <span class="dv">25</span> :</span>
+<span id="cb30-2"><a href="#cb30-2"></a>temp <span class="op">=</span> <span class="dv">20</span> <span class="co"># 温度 (Temperature)</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="cf">if</span> <span class="dv">15</span> <span class="op">&lt;=</span> temp <span class="op">&lt;=</span> <span class="dv">25</span> : <span class="co"># tempが15以上25以下のとき「真」となる</span></span>
 <span id="cb30-4"><a href="#cb30-4"></a>  <span class="bu">print</span>(<span class="st">&#39;正常です&#39;</span>)</span>
 <span id="cb30-5"><a href="#cb30-5"></a><span class="cf">else</span> :</span>
 <span id="cb30-6"><a href="#cb30-6"></a>  <span class="bu">print</span>(<span class="st">&#39;正常範囲外です&#39;</span>)</span></code></pre></div>
+      <p>他のプログラミング言語では、通常、次のように<strong>AND条件を使って上記のような条件の評価</strong>をします。</p>
+      <div class="sourceCode" id="cb31"
+      data-caption="数値範囲条件の与え方2.py"><pre
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb31-2"><a href="#cb31-2"></a>temp <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="cf">if</span> temp <span class="op">&gt;=</span> <span class="dv">15</span> <span class="kw">and</span> temp <span class="op">&lt;=</span> <span class="dv">25</span> :</span>
+<span id="cb31-4"><a href="#cb31-4"></a>  <span class="bu">print</span>(<span class="st">&#39;正常です&#39;</span>)</span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="cf">else</span> :</span>
+<span id="cb31-6"><a href="#cb31-6"></a>  <span class="bu">print</span>(<span class="st">&#39;正常範囲外です&#39;</span>)</span></code></pre></div>
       <h3 data-number="6.9.1" id="演習4-4分"><span
       class="header-section-number">6.9.1</span> 演習4
       (<i class="fa-solid fa-stopwatch"></i> 4分)</h3>
@@ -814,34 +830,34 @@ FFFF</code></pre>
       <li>点Aは、X軸上に存在します。</li>
       <li>点Aは、Y軸上に存在します。</li>
       </ul>
-      <div class="sourceCode" id="cb31"
+      <div class="sourceCode" id="cb32"
       data-caption="演習5 (条件分岐構文)"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="im">import</span> random <span class="im">as</span> r</span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb31-4"><a href="#cb31-4"></a>  x <span class="op">=</span> r.choice([<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>])</span>
-<span id="cb31-5"><a href="#cb31-5"></a>  y <span class="op">=</span> r.choice([<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>])</span>
-<span id="cb31-6"><a href="#cb31-6"></a>  <span class="bu">print</span>(<span class="ss">f&#39;点A (</span><span class="sc">{</span>x<span class="sc">:2}</span><span class="ss">,</span><span class="sc">{</span>y<span class="sc">:2}</span><span class="ss">) は、&#39;</span>, end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb31-7"><a href="#cb31-7"></a>  <span class="co"># ▼▼ 以下にプログラムを追記 ▼▼</span></span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="im">import</span> random <span class="im">as</span> r</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb32-4"><a href="#cb32-4"></a>  x <span class="op">=</span> r.choice([<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb32-5"><a href="#cb32-5"></a>  y <span class="op">=</span> r.choice([<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb32-6"><a href="#cb32-6"></a>  <span class="bu">print</span>(<span class="ss">f&#39;点A (</span><span class="sc">{</span>x<span class="sc">:2}</span><span class="ss">,</span><span class="sc">{</span>y<span class="sc">:2}</span><span class="ss">) は、&#39;</span>, end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb32-7"><a href="#cb32-7"></a>  <span class="co"># ▼▼ 以下にプログラムを追記 ▼▼</span></span></code></pre></div>
       <h2 data-number="6.10" id="条件式の正体"><span
       class="header-section-number">6.10</span> 条件式の正体</h2>
       <p><code>x &gt; 5</code> や
       <code>x==0</code>、<code>0&lt;=x&lt;=10</code>
       のような条件式は、次のように <span
       class="masked">if文以外の場所</span> でも使うことができます。</p>
-      <div class="sourceCode" id="cb32"
+      <div class="sourceCode" id="cb33"
       data-caption="条件式は「True」か「False」を返す計算式"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb32-2"><a href="#cb32-2"></a>x <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a></span>
-<span id="cb32-4"><a href="#cb32-4"></a><span class="co"># x &gt; 5 の評価結果を 変数var1 に格納</span></span>
-<span id="cb32-5"><a href="#cb32-5"></a>var1 <span class="op">=</span> x <span class="op">&gt;</span> <span class="dv">5</span>  </span>
-<span id="cb32-6"><a href="#cb32-6"></a></span>
-<span id="cb32-7"><a href="#cb32-7"></a><span class="co"># x == 0 の評価結果を 変数var2 に格納</span></span>
-<span id="cb32-8"><a href="#cb32-8"></a>var2 <span class="op">=</span> x <span class="op">==</span> <span class="dv">0</span>  </span>
-<span id="cb32-9"><a href="#cb32-9"></a></span>
-<span id="cb32-10"><a href="#cb32-10"></a><span class="co"># 変数に格納された値を出力</span></span>
-<span id="cb32-11"><a href="#cb32-11"></a><span class="bu">print</span>(<span class="ss">f&#39;var1=</span><span class="sc">{</span>var1<span class="sc">}</span><span class="ss">, var2=</span><span class="sc">{</span>var2<span class="sc">}</span><span class="ss">&#39;</span>)</span></code></pre></div>
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb33-2"><a href="#cb33-2"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="co"># x &gt; 5 の評価結果を 変数var1 に格納</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>var1 <span class="op">=</span> x <span class="op">&gt;</span> <span class="dv">5</span>  </span>
+<span id="cb33-6"><a href="#cb33-6"></a></span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="co"># x == 0 の評価結果を 変数var2 に格納</span></span>
+<span id="cb33-8"><a href="#cb33-8"></a>var2 <span class="op">=</span> x <span class="op">==</span> <span class="dv">0</span>  </span>
+<span id="cb33-9"><a href="#cb33-9"></a></span>
+<span id="cb33-10"><a href="#cb33-10"></a><span class="co"># 変数に格納された値を出力</span></span>
+<span id="cb33-11"><a href="#cb33-11"></a><span class="bu">print</span>(<span class="ss">f&#39;var1=</span><span class="sc">{</span>var1<span class="sc">}</span><span class="ss">, var2=</span><span class="sc">{</span>var2<span class="sc">}</span><span class="ss">&#39;</span>)</span></code></pre></div>
       <p>実行結果は次のようになります
       (面倒がらずに実際に実行してください)。</p>
       <pre><code>var1=True, var2=False</code></pre>
@@ -853,33 +869,33 @@ FFFF</code></pre>
       float型 (浮動小数点数型) と同様に変数に格納 (バインド)
       することができます。</p>
       <p>そのため、次のように利用することもできます。</p>
-      <div class="sourceCode" id="cb34"
-      data-caption="条件の評価結果を変数に格納してから条件判定を行う例"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb34-2"><a href="#cb34-2"></a>x <span class="op">=</span> <span class="op">-</span><span class="dv">5</span></span>
-<span id="cb34-3"><a href="#cb34-3"></a>y <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb34-4"><a href="#cb34-4"></a>z <span class="op">=</span> <span class="dv">80</span></span>
-<span id="cb34-5"><a href="#cb34-5"></a>c1 <span class="op">=</span> <span class="op">-</span><span class="dv">10</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">10</span> <span class="co"># 条件式の評価結果をc1に格納</span></span>
-<span id="cb34-6"><a href="#cb34-6"></a>c2 <span class="op">=</span> <span class="op">-</span><span class="dv">15</span> <span class="op">&lt;=</span> y <span class="op">&lt;=</span> <span class="dv">15</span> <span class="co">#  〃 をc2に格納</span></span>
-<span id="cb34-7"><a href="#cb34-7"></a>c3 <span class="op">=</span> <span class="op">-</span><span class="dv">20</span> <span class="op">&lt;=</span> z <span class="op">&lt;=</span> <span class="dv">20</span> <span class="co">#  〃 をc3に格納</span></span>
-<span id="cb34-8"><a href="#cb34-8"></a><span class="bu">print</span>(<span class="st">&#39;点Aは指定の空間内に&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb34-9"><a href="#cb34-9"></a><span class="cf">if</span> c1 <span class="kw">and</span> c2 <span class="kw">and</span> c3 :</span>
-<span id="cb34-10"><a href="#cb34-10"></a>  <span class="bu">print</span>(<span class="st">&#39;存在します。&#39;</span>)</span>
-<span id="cb34-11"><a href="#cb34-11"></a><span class="cf">else</span> :</span>
-<span id="cb34-12"><a href="#cb34-12"></a>  <span class="bu">print</span>(<span class="st">&#39;存在しません。&#39;</span>)</span></code></pre></div>
-      <p>変数に格納せずに、<code>if</code>
-      に直接的に条件を与えると次のようになります。</p>
       <div class="sourceCode" id="cb35"
-      data-caption="条件をif文に直接記述"><pre
+      data-caption="条件の評価結果を変数に格納してから条件判定を行う例"><pre
       class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
 <span id="cb35-2"><a href="#cb35-2"></a>x <span class="op">=</span> <span class="op">-</span><span class="dv">5</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a>y <span class="op">=</span> <span class="dv">12</span></span>
 <span id="cb35-4"><a href="#cb35-4"></a>z <span class="op">=</span> <span class="dv">80</span></span>
-<span id="cb35-5"><a href="#cb35-5"></a><span class="bu">print</span>(<span class="st">&#39;点Aは指定の空間内に&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb35-6"><a href="#cb35-6"></a><span class="cf">if</span> <span class="op">-</span><span class="dv">10</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">10</span> <span class="kw">and</span> <span class="op">-</span><span class="dv">15</span> <span class="op">&lt;=</span> y <span class="op">&lt;=</span> <span class="dv">15</span> <span class="kw">and</span> <span class="op">-</span><span class="dv">20</span> <span class="op">&lt;=</span> z <span class="op">&lt;=</span> <span class="dv">20</span> :</span>
-<span id="cb35-7"><a href="#cb35-7"></a>  <span class="bu">print</span>(<span class="st">&#39;存在します。&#39;</span>)</span>
-<span id="cb35-8"><a href="#cb35-8"></a><span class="cf">else</span> :</span>
-<span id="cb35-9"><a href="#cb35-9"></a>  <span class="bu">print</span>(<span class="st">&#39;存在しません。&#39;</span>)</span></code></pre></div>
+<span id="cb35-5"><a href="#cb35-5"></a>c1 <span class="op">=</span> <span class="op">-</span><span class="dv">10</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">10</span> <span class="co"># 条件式の評価結果をc1に格納</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>c2 <span class="op">=</span> <span class="op">-</span><span class="dv">15</span> <span class="op">&lt;=</span> y <span class="op">&lt;=</span> <span class="dv">15</span> <span class="co">#  〃 をc2に格納</span></span>
+<span id="cb35-7"><a href="#cb35-7"></a>c3 <span class="op">=</span> <span class="op">-</span><span class="dv">20</span> <span class="op">&lt;=</span> z <span class="op">&lt;=</span> <span class="dv">20</span> <span class="co">#  〃 をc3に格納</span></span>
+<span id="cb35-8"><a href="#cb35-8"></a><span class="bu">print</span>(<span class="st">&#39;点Aは指定の空間内に&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb35-9"><a href="#cb35-9"></a><span class="cf">if</span> c1 <span class="kw">and</span> c2 <span class="kw">and</span> c3 :</span>
+<span id="cb35-10"><a href="#cb35-10"></a>  <span class="bu">print</span>(<span class="st">&#39;存在します。&#39;</span>)</span>
+<span id="cb35-11"><a href="#cb35-11"></a><span class="cf">else</span> :</span>
+<span id="cb35-12"><a href="#cb35-12"></a>  <span class="bu">print</span>(<span class="st">&#39;存在しません。&#39;</span>)</span></code></pre></div>
+      <p>変数に格納せずに、<code>if</code>
+      に直接的に条件を与えると次のようになります。</p>
+      <div class="sourceCode" id="cb36"
+      data-caption="条件をif文に直接記述"><pre
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb36-2"><a href="#cb36-2"></a>x <span class="op">=</span> <span class="op">-</span><span class="dv">5</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a>y <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>z <span class="op">=</span> <span class="dv">80</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="bu">print</span>(<span class="st">&#39;点Aは指定の空間内に&#39;</span>,end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb36-6"><a href="#cb36-6"></a><span class="cf">if</span> <span class="op">-</span><span class="dv">10</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">10</span> <span class="kw">and</span> <span class="op">-</span><span class="dv">15</span> <span class="op">&lt;=</span> y <span class="op">&lt;=</span> <span class="dv">15</span> <span class="kw">and</span> <span class="op">-</span><span class="dv">20</span> <span class="op">&lt;=</span> z <span class="op">&lt;=</span> <span class="dv">20</span> :</span>
+<span id="cb36-7"><a href="#cb36-7"></a>  <span class="bu">print</span>(<span class="st">&#39;存在します。&#39;</span>)</span>
+<span id="cb36-8"><a href="#cb36-8"></a><span class="cf">else</span> :</span>
+<span id="cb36-9"><a href="#cb36-9"></a>  <span class="bu">print</span>(<span class="st">&#39;存在しません。&#39;</span>)</span></code></pre></div>
       <h1 data-number="7" id="宿題"><span
       class="header-section-number">7</span> 宿題</h1>
       <p>次回講義、6月15日(木)
