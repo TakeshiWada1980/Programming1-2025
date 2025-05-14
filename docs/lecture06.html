@@ -129,10 +129,6 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
       のなかで取組み、共有設定の上、Teams
       の指定位置に提出してください。<code>.ipynb</code>
       ファイルを提出するわけではないので注意してください。</p>
-      <ul>
-      <li>Colabノートブックの共有設定は<a
-      href="lecture03.html#googlecolabノートブックの共有設定">第03回講義</a>で解説済みです。</li>
-      </ul>
       <p>提出に際しては、必ず、<strong>ノートブックの</strong>
       <strong><em>先頭</em></strong>
       に以下の内容のテキストセルを作成し、それにつづけて各演習のコードセルを配置してください。各コードセルの先頭には
@@ -146,9 +142,19 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
       <p>必ず、課題に要した時間を明記してください。</p>
       <ul>
       <li><strong><em>評価</em></strong> : 標準
-      (＝指示した最低限のことができている)
-      を「<strong>7.5点</strong>」として <strong>10点満点</strong>
-      で評価します。</li>
+      (＝演習1～4の全てに取り組んでいる)
+      を「<strong>8点</strong>」として <strong>10点満点</strong>
+      で評価します。
+      <ul>
+      <li>課題の採点後は、修正版の再提出・追提出があっても原則として再評価はしません。</li>
+      <li>Colabノートブックの共有設定は<a
+      href="lecture03.html#googlecolabノートブックの共有設定">第03回講義</a>で解説済みです。
+      <ul>
+      <li>適切に共有されていない場合
+      (提出された共有リンクからプログラムを確認できない場合)
+      <strong>0点で評価します</strong>。再評価はしません。</li>
+      </ul></li>
+      </ul></li>
       <li><strong><em>取り組み時間の目安</em></strong> :
       <strong>120分以上</strong></li>
       <li><strong><em>期限</em></strong> : 2025年5月28日(水) 23時59分
@@ -386,7 +392,8 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
       <code>y2a</code>）と点2b（<code>x2b</code>,
       <code>y2b</code>）とする。</li>
       </ul></li>
-      <li>点1 と 点2 の座標が同じ場合にも適切に処理できること。</li>
+      <li>点1 と 点2
+      には、異なる座標が与えられることが保証されているものとする。</li>
       </ul>
       <figure>
       <img src="figs/06/p3-01.png" alt="img" />
@@ -454,58 +461,62 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
 <span id="cb15-13"><a href="#cb15-13"></a>x1, y1 <span class="op">=</span>   <span class="dv">1</span>,   <span class="op">-</span><span class="dv">4</span></span>
 <span id="cb15-14"><a href="#cb15-14"></a>x2, y2 <span class="op">=</span>  <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="fl">1.5</span></span>
 <span id="cb15-15"><a href="#cb15-15"></a></span>
-<span id="cb15-16"><a href="#cb15-16"></a><span class="co"># 次の 4点（点1a、点1b、点2a、点2b）の座標をプログラムにより求める</span></span>
-<span id="cb15-17"><a href="#cb15-17"></a>x1a, y1a <span class="op">=</span> <span class="fl">1.19</span>,<span class="op">-</span><span class="fl">3.54</span></span>
-<span id="cb15-18"><a href="#cb15-18"></a>x1b, y1b <span class="op">=</span> <span class="fl">0.81</span>,<span class="op">-</span><span class="fl">4.46</span></span>
-<span id="cb15-19"><a href="#cb15-19"></a>x2a, y2a <span class="op">=</span> <span class="op">-</span><span class="fl">4.81</span>,<span class="op">-</span><span class="fl">1.04</span></span>
-<span id="cb15-20"><a href="#cb15-20"></a>x2b, y2b <span class="op">=</span> <span class="op">-</span><span class="fl">5.19</span>,<span class="op">-</span><span class="fl">1.96</span></span>
-<span id="cb15-21"><a href="#cb15-21"></a></span>
-<span id="cb15-22"><a href="#cb15-22"></a><span class="co"># ▲▲▲ 基本的な書き換え範囲（ここまで）</span></span>
-<span id="cb15-23"><a href="#cb15-23"></a></span>
-<span id="cb15-24"><a href="#cb15-24"></a><span class="bu">print</span>(<span class="ss">f&#39;点1の座標は (</span><span class="sc">{</span>x1<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y1<span class="sc">:.2f}</span><span class="ss">)&#39;</span>)</span>
-<span id="cb15-25"><a href="#cb15-25"></a><span class="bu">print</span>(<span class="ss">f&#39;  これを中点とする長さ1の垂直線の両端座標は (</span><span class="sc">{</span>x1a<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y1a<span class="sc">:.2f}</span><span class="ss">) と (</span><span class="sc">{</span>x1b<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y1b<span class="sc">:.2f}</span><span class="ss">)&#39;</span>)</span>
-<span id="cb15-26"><a href="#cb15-26"></a><span class="bu">print</span>(<span class="ss">f&#39;点2の座標は (</span><span class="sc">{</span>x2<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y2<span class="sc">:.2f}</span><span class="ss">)&#39;</span>)</span>
-<span id="cb15-27"><a href="#cb15-27"></a><span class="bu">print</span>(<span class="ss">f&#39;  これを中点とする長さ1の垂直線の両端座標は (</span><span class="sc">{</span>x2a<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y2a<span class="sc">:.2f}</span><span class="ss">) と (</span><span class="sc">{</span>x2b<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y2b<span class="sc">:.2f}</span><span class="ss">)&#39;</span>)</span>
-<span id="cb15-28"><a href="#cb15-28"></a></span>
-<span id="cb15-29"><a href="#cb15-29"></a><span class="co"># 以下、適切な座標計算ができているかを確認するための処理です。</span></span>
-<span id="cb15-30"><a href="#cb15-30"></a><span class="co"># 現時点では深く内容を理解する必要はありません。</span></span>
+<span id="cb15-16"><a href="#cb15-16"></a><span class="co"># 点1と点2が同一座標ではないことを簡易チェック</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a><span class="cf">assert</span> x1 <span class="op">!=</span> x2 <span class="kw">or</span> y1 <span class="op">!=</span> y2, <span class="st">&#39;点1と点2は異なる座標である必要があります（仕様違反）&#39;</span></span>
+<span id="cb15-18"><a href="#cb15-18"></a></span>
+<span id="cb15-19"><a href="#cb15-19"></a><span class="co"># 次の 4点（点1a、点1b、点2a、点2b）の座標をプログラムにより求める</span></span>
+<span id="cb15-20"><a href="#cb15-20"></a>x1a, y1a <span class="op">=</span> <span class="fl">1.19</span>,<span class="op">-</span><span class="fl">3.54</span></span>
+<span id="cb15-21"><a href="#cb15-21"></a>x1b, y1b <span class="op">=</span> <span class="fl">0.81</span>,<span class="op">-</span><span class="fl">4.46</span></span>
+<span id="cb15-22"><a href="#cb15-22"></a>x2a, y2a <span class="op">=</span> <span class="op">-</span><span class="fl">4.81</span>,<span class="op">-</span><span class="fl">1.04</span></span>
+<span id="cb15-23"><a href="#cb15-23"></a>x2b, y2b <span class="op">=</span> <span class="op">-</span><span class="fl">5.19</span>,<span class="op">-</span><span class="fl">1.96</span></span>
+<span id="cb15-24"><a href="#cb15-24"></a></span>
+<span id="cb15-25"><a href="#cb15-25"></a><span class="co"># ▲▲▲ 基本的な書き換え範囲（ここまで）</span></span>
+<span id="cb15-26"><a href="#cb15-26"></a></span>
+<span id="cb15-27"><a href="#cb15-27"></a><span class="bu">print</span>(<span class="ss">f&#39;点1の座標は (</span><span class="sc">{</span>x1<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y1<span class="sc">:.2f}</span><span class="ss">)&#39;</span>)</span>
+<span id="cb15-28"><a href="#cb15-28"></a><span class="bu">print</span>(<span class="ss">f&#39;  これを中点とする長さ1の垂直線の両端座標は (</span><span class="sc">{</span>x1a<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y1a<span class="sc">:.2f}</span><span class="ss">) と (</span><span class="sc">{</span>x1b<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y1b<span class="sc">:.2f}</span><span class="ss">)&#39;</span>)</span>
+<span id="cb15-29"><a href="#cb15-29"></a><span class="bu">print</span>(<span class="ss">f&#39;点2の座標は (</span><span class="sc">{</span>x2<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y2<span class="sc">:.2f}</span><span class="ss">)&#39;</span>)</span>
+<span id="cb15-30"><a href="#cb15-30"></a><span class="bu">print</span>(<span class="ss">f&#39;  これを中点とする長さ1の垂直線の両端座標は (</span><span class="sc">{</span>x2a<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y2a<span class="sc">:.2f}</span><span class="ss">) と (</span><span class="sc">{</span>x2b<span class="sc">:.2f}</span><span class="ss">,</span><span class="sc">{</span>y2b<span class="sc">:.2f}</span><span class="ss">)&#39;</span>)</span>
 <span id="cb15-31"><a href="#cb15-31"></a></span>
-<span id="cb15-32"><a href="#cb15-32"></a><span class="kw">def</span> lower_int(x):</span>
-<span id="cb15-33"><a href="#cb15-33"></a>  <span class="cf">return</span> <span class="bu">int</span>(x) <span class="op">-</span> (<span class="dv">0</span> <span class="cf">if</span> x <span class="op">==</span> <span class="bu">int</span>(x) <span class="cf">else</span> <span class="dv">1</span>)</span>
-<span id="cb15-34"><a href="#cb15-34"></a></span>
-<span id="cb15-35"><a href="#cb15-35"></a><span class="kw">def</span> upper_int(x):</span>
-<span id="cb15-36"><a href="#cb15-36"></a>    <span class="cf">return</span> <span class="bu">int</span>(x) <span class="op">+</span> (<span class="dv">0</span> <span class="cf">if</span> x <span class="op">==</span> <span class="bu">int</span>(x) <span class="cf">else</span> <span class="dv">1</span>)</span>
-<span id="cb15-37"><a href="#cb15-37"></a></span>
-<span id="cb15-38"><a href="#cb15-38"></a><span class="kw">def</span> render_graph():</span>
-<span id="cb15-39"><a href="#cb15-39"></a></span>
-<span id="cb15-40"><a href="#cb15-40"></a>  fig, axes<span class="op">=</span>plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>), facecolor<span class="op">=</span><span class="st">&#39;white&#39;</span>)</span>
-<span id="cb15-41"><a href="#cb15-41"></a>  <span class="cf">for</span> i,ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes) :</span>
-<span id="cb15-42"><a href="#cb15-42"></a></span>
-<span id="cb15-43"><a href="#cb15-43"></a>    ax.axvline(<span class="dv">0</span>,c<span class="op">=</span><span class="st">&#39;black&#39;</span>,lw<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb15-44"><a href="#cb15-44"></a>    ax.axhline(<span class="dv">0</span>,c<span class="op">=</span><span class="st">&#39;black&#39;</span>,lw<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb15-45"><a href="#cb15-45"></a></span>
-<span id="cb15-46"><a href="#cb15-46"></a>    ax.plot([x1,x2],[y1,y2],c<span class="op">=</span><span class="st">&#39;tab:blue&#39;</span>)</span>
-<span id="cb15-47"><a href="#cb15-47"></a></span>
-<span id="cb15-48"><a href="#cb15-48"></a>    <span class="cf">if</span> i<span class="op">==</span><span class="dv">1</span> :</span>
-<span id="cb15-49"><a href="#cb15-49"></a>      ax.plot([x1a,x1b],[y1a,y1b],c<span class="op">=</span><span class="st">&#39;tab:red&#39;</span>)</span>
-<span id="cb15-50"><a href="#cb15-50"></a>      ax.plot([x2a,x2b],[y2a,y2b],c<span class="op">=</span><span class="st">&#39;tab:red&#39;</span>)</span>
+<span id="cb15-32"><a href="#cb15-32"></a></span>
+<span id="cb15-33"><a href="#cb15-33"></a><span class="co"># 以下、適切な座標計算ができているかを確認するための処理です。</span></span>
+<span id="cb15-34"><a href="#cb15-34"></a><span class="co"># 現時点では深く内容を理解する必要はありません。</span></span>
+<span id="cb15-35"><a href="#cb15-35"></a></span>
+<span id="cb15-36"><a href="#cb15-36"></a><span class="kw">def</span> lower_int(x):</span>
+<span id="cb15-37"><a href="#cb15-37"></a>  <span class="cf">return</span> <span class="bu">int</span>(x) <span class="op">-</span> (<span class="dv">0</span> <span class="cf">if</span> x <span class="op">==</span> <span class="bu">int</span>(x) <span class="cf">else</span> <span class="dv">1</span>)</span>
+<span id="cb15-38"><a href="#cb15-38"></a></span>
+<span id="cb15-39"><a href="#cb15-39"></a><span class="kw">def</span> upper_int(x):</span>
+<span id="cb15-40"><a href="#cb15-40"></a>    <span class="cf">return</span> <span class="bu">int</span>(x) <span class="op">+</span> (<span class="dv">0</span> <span class="cf">if</span> x <span class="op">==</span> <span class="bu">int</span>(x) <span class="cf">else</span> <span class="dv">1</span>)</span>
+<span id="cb15-41"><a href="#cb15-41"></a></span>
+<span id="cb15-42"><a href="#cb15-42"></a><span class="kw">def</span> render_graph():</span>
+<span id="cb15-43"><a href="#cb15-43"></a></span>
+<span id="cb15-44"><a href="#cb15-44"></a>  fig, axes<span class="op">=</span>plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>), facecolor<span class="op">=</span><span class="st">&#39;white&#39;</span>)</span>
+<span id="cb15-45"><a href="#cb15-45"></a>  <span class="cf">for</span> i,ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes) :</span>
+<span id="cb15-46"><a href="#cb15-46"></a></span>
+<span id="cb15-47"><a href="#cb15-47"></a>    ax.axvline(<span class="dv">0</span>,c<span class="op">=</span><span class="st">&#39;black&#39;</span>,lw<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb15-48"><a href="#cb15-48"></a>    ax.axhline(<span class="dv">0</span>,c<span class="op">=</span><span class="st">&#39;black&#39;</span>,lw<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb15-49"><a href="#cb15-49"></a></span>
+<span id="cb15-50"><a href="#cb15-50"></a>    ax.plot([x1,x2],[y1,y2],c<span class="op">=</span><span class="st">&#39;tab:blue&#39;</span>)</span>
 <span id="cb15-51"><a href="#cb15-51"></a></span>
-<span id="cb15-52"><a href="#cb15-52"></a>    ax.set_aspect(<span class="st">&#39;equal&#39;</span>)</span>
-<span id="cb15-53"><a href="#cb15-53"></a>    margin <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb15-54"><a href="#cb15-54"></a>    ax.set_xlim( lower_int(<span class="bu">min</span>(x1a,x1b,x2a,x2b)<span class="op">-</span>margin),</span>
-<span id="cb15-55"><a href="#cb15-55"></a>                upper_int(<span class="bu">max</span>(x1a,x1b,x2a,x2b)<span class="op">+</span>margin ))</span>
-<span id="cb15-56"><a href="#cb15-56"></a>    ax.set_ylim( lower_int(<span class="bu">min</span>(y1a,y1b,y2a,y2b)<span class="op">-</span>margin),</span>
-<span id="cb15-57"><a href="#cb15-57"></a>                upper_int(<span class="bu">max</span>(y1a,y1b,y2a,y2b)<span class="op">+</span>margin ))</span>
-<span id="cb15-58"><a href="#cb15-58"></a>    ax.set_axisbelow(<span class="va">True</span>)</span>
-<span id="cb15-59"><a href="#cb15-59"></a>    ax.set_xticks(np.arange(ax.get_xlim()[<span class="dv">0</span>],ax.get_xlim()[<span class="dv">1</span>]<span class="op">+</span><span class="dv">1</span>))</span>
-<span id="cb15-60"><a href="#cb15-60"></a>    ax.set_yticks(np.arange(ax.get_ylim()[<span class="dv">0</span>],ax.get_ylim()[<span class="dv">1</span>]<span class="op">+</span><span class="dv">1</span>))</span>
-<span id="cb15-61"><a href="#cb15-61"></a></span>
-<span id="cb15-62"><a href="#cb15-62"></a>    ax.tick_params(direction<span class="op">=</span><span class="st">&#39;inout&#39;</span>)</span>
-<span id="cb15-63"><a href="#cb15-63"></a>    ax.grid()</span>
-<span id="cb15-64"><a href="#cb15-64"></a>  plt.tight_layout()</span>
-<span id="cb15-65"><a href="#cb15-65"></a>  plt.show()</span>
-<span id="cb15-66"><a href="#cb15-66"></a></span>
-<span id="cb15-67"><a href="#cb15-67"></a>render_graph()</span></code></pre></div>
+<span id="cb15-52"><a href="#cb15-52"></a>    <span class="cf">if</span> i<span class="op">==</span><span class="dv">1</span> :</span>
+<span id="cb15-53"><a href="#cb15-53"></a>      ax.plot([x1a,x1b],[y1a,y1b],c<span class="op">=</span><span class="st">&#39;tab:red&#39;</span>)</span>
+<span id="cb15-54"><a href="#cb15-54"></a>      ax.plot([x2a,x2b],[y2a,y2b],c<span class="op">=</span><span class="st">&#39;tab:red&#39;</span>)</span>
+<span id="cb15-55"><a href="#cb15-55"></a></span>
+<span id="cb15-56"><a href="#cb15-56"></a>    ax.set_aspect(<span class="st">&#39;equal&#39;</span>)</span>
+<span id="cb15-57"><a href="#cb15-57"></a>    margin <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb15-58"><a href="#cb15-58"></a>    ax.set_xlim( lower_int(<span class="bu">min</span>(x1a,x1b,x2a,x2b)<span class="op">-</span>margin),</span>
+<span id="cb15-59"><a href="#cb15-59"></a>                upper_int(<span class="bu">max</span>(x1a,x1b,x2a,x2b)<span class="op">+</span>margin ))</span>
+<span id="cb15-60"><a href="#cb15-60"></a>    ax.set_ylim( lower_int(<span class="bu">min</span>(y1a,y1b,y2a,y2b)<span class="op">-</span>margin),</span>
+<span id="cb15-61"><a href="#cb15-61"></a>                upper_int(<span class="bu">max</span>(y1a,y1b,y2a,y2b)<span class="op">+</span>margin ))</span>
+<span id="cb15-62"><a href="#cb15-62"></a>    ax.set_axisbelow(<span class="va">True</span>)</span>
+<span id="cb15-63"><a href="#cb15-63"></a>    ax.set_xticks(np.arange(ax.get_xlim()[<span class="dv">0</span>],ax.get_xlim()[<span class="dv">1</span>]<span class="op">+</span><span class="dv">1</span>))</span>
+<span id="cb15-64"><a href="#cb15-64"></a>    ax.set_yticks(np.arange(ax.get_ylim()[<span class="dv">0</span>],ax.get_ylim()[<span class="dv">1</span>]<span class="op">+</span><span class="dv">1</span>))</span>
+<span id="cb15-65"><a href="#cb15-65"></a></span>
+<span id="cb15-66"><a href="#cb15-66"></a>    ax.tick_params(direction<span class="op">=</span><span class="st">&#39;inout&#39;</span>)</span>
+<span id="cb15-67"><a href="#cb15-67"></a>    ax.grid()</span>
+<span id="cb15-68"><a href="#cb15-68"></a>  plt.tight_layout()</span>
+<span id="cb15-69"><a href="#cb15-69"></a>  plt.show()</span>
+<span id="cb15-70"><a href="#cb15-70"></a></span>
+<span id="cb15-71"><a href="#cb15-71"></a>render_graph()</span></code></pre></div>
       <div class="note type-senior">
       <p><strong>中級者向け</strong></p>
       <p>図は <a
