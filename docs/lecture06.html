@@ -508,13 +508,16 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
 <span id="cb15-67"><a href="#cb15-67"></a>render_graph()</span></code></pre></div>
       <div class="note type-senior">
       <p><strong>中級者向け</strong></p>
-      <p>ここで図は、<a
+      <p>図は <a
       href="https://matplotlib.org/stable/gallery/index.html">Matplotlib</a>
-      というライブラリを利用して描画しています。授業では<a
-      href="https://takeshiwada1980.github.io/Programming1-2024/lecture11.html#斜方投射のシミュレーションと可視化">第11回講義</a>以降で、正式に扱います。</p>
-      <p>この演習問題は、NumPy の <code>ndarray</code> という行列
-      (ベクトル)
-      を扱うオブジェクト利用するとスマートに実装することができます。</p>
+      というライブラリを利用して描画しています。本授業では<a
+      href="https://takeshiwada1980.github.io/Programming1-2024/lecture11.html#斜方投射のシミュレーションと可視化">第11回講義</a>以降で正式に扱います。</p>
+      <p>この演習で要求されている処理は、NumPy の <code>ndarray</code>
+      という行列 (ベクトル)
+      を扱うオブジェクトを使用することで、極めてスマートに実装できます。本授業では、NumPy
+      は<a
+      href="https://takeshiwada1980.github.io/Programming1-2024/lecture17.html#numpy">第17回講義</a>以降で正式に取り上げる予定です。意欲のある学生は、ぜひ
+      NumPy を利用して本演習に取り組んでください。</p>
       </div>
       <h1 data-number="6" id="演習4"><span
       class="header-section-number">6</span> 演習4</h1>
@@ -535,7 +538,24 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
       <li>武器には「<strong>射程距離</strong>」「<strong>攻撃方向</strong>」「<strong>拡がり角</strong>」の3つのパラメータが設定される。</li>
       <li>扇形の攻撃範囲内に敵キャラが存在する場合は「<strong>Hit!</strong>」、そうではない場合は「<strong>Miss.</strong>」を出力したい。</li>
       </ul>
-      <p><strong>例1</strong>：「<strong>Miss.</strong>」</p>
+      <h3 data-number="6.0.1" id="例1"><span
+      class="header-section-number">6.0.1</span> 例1：</h3>
+      <p>▼ 入力 ▼</p>
+      <pre><code># 自キャラ位置（下図の青点）
+x1 = 5.0
+y1 = -10.0
+
+# 敵キャラ位置（下図の赤点）
+x2 = 15
+y2 = 10
+
+# 射程距離、攻撃方向、拡がり角
+bw_range = 15
+bw_direction = 45
+bw_spread_angle = 70</code></pre>
+      <p>▼ 期待する出力 ▼</p>
+      <pre><code>Miss.</code></pre>
+      <p>(参考)</p>
       <figure>
       <img src="figs/06/p4-01.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
@@ -601,79 +621,79 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
       を実行しておいてください。</li>
       </ul></li>
       </ul>
-      <div class="sourceCode" id="cb16" data-caption="演習4"><pre
-      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="im">import</span> math</span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="im">import</span> japanize_matplotlib</span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="im">import</span> matplotlib.patheffects <span class="im">as</span> pe</span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="im">from</span> matplotlib <span class="im">import</span> patches</span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="im">from</span> matplotlib_inline.backend_inline <span class="im">import</span> set_matplotlib_formats</span>
-<span id="cb16-8"><a href="#cb16-8"></a>set_matplotlib_formats(<span class="st">&#39;svg&#39;</span>)</span>
-<span id="cb16-9"><a href="#cb16-9"></a>plt.rcParams[<span class="st">&#39;mathtext.fontset&#39;</span>] <span class="op">=</span> <span class="st">&#39;cm&#39;</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a></span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="co"># ▼▼▼ 基本的な書き換え範囲（ここから）</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a></span>
-<span id="cb16-13"><a href="#cb16-13"></a><span class="co"># 自キャラ位置</span></span>
-<span id="cb16-14"><a href="#cb16-14"></a>x1 <span class="op">=</span> <span class="fl">5.5</span></span>
-<span id="cb16-15"><a href="#cb16-15"></a>y1 <span class="op">=</span> <span class="op">-</span><span class="fl">10.0</span></span>
-<span id="cb16-16"><a href="#cb16-16"></a></span>
-<span id="cb16-17"><a href="#cb16-17"></a><span class="co"># 敵キャラ位置</span></span>
-<span id="cb16-18"><a href="#cb16-18"></a>x2 <span class="op">=</span> <span class="fl">15.2</span></span>
-<span id="cb16-19"><a href="#cb16-19"></a>y2 <span class="op">=</span> <span class="fl">10.6</span></span>
-<span id="cb16-20"><a href="#cb16-20"></a></span>
-<span id="cb16-21"><a href="#cb16-21"></a><span class="co"># 射程距離、攻撃方向、拡がり角</span></span>
-<span id="cb16-22"><a href="#cb16-22"></a>bw_range <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb16-23"><a href="#cb16-23"></a>bw_direction <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb16-24"><a href="#cb16-24"></a>bw_spread_angle <span class="op">=</span> <span class="dv">70</span></span>
-<span id="cb16-25"><a href="#cb16-25"></a></span>
-<span id="cb16-26"><a href="#cb16-26"></a><span class="co"># 判定処理</span></span>
-<span id="cb16-27"><a href="#cb16-27"></a><span class="bu">print</span>(<span class="st">&#39;Miss.&#39;</span>)</span>
-<span id="cb16-28"><a href="#cb16-28"></a></span>
-<span id="cb16-29"><a href="#cb16-29"></a><span class="co"># ▲▲▲ 基本的な書き換え範囲（ここまで）</span></span>
-<span id="cb16-30"><a href="#cb16-30"></a></span>
-<span id="cb16-31"><a href="#cb16-31"></a><span class="cf">assert</span> <span class="op">-</span><span class="dv">128</span> <span class="op">&lt;=</span> x1 <span class="op">&lt;=</span> <span class="dv">127</span>  </span>
-<span id="cb16-32"><a href="#cb16-32"></a><span class="cf">assert</span> <span class="op">-</span><span class="dv">128</span> <span class="op">&lt;=</span> y1 <span class="op">&lt;=</span> <span class="dv">127</span>  </span>
-<span id="cb16-33"><a href="#cb16-33"></a><span class="cf">assert</span> <span class="op">-</span><span class="dv">128</span> <span class="op">&lt;=</span> x2 <span class="op">&lt;=</span> <span class="dv">127</span>  </span>
-<span id="cb16-34"><a href="#cb16-34"></a><span class="cf">assert</span> <span class="op">-</span><span class="dv">128</span> <span class="op">&lt;=</span> y2 <span class="op">&lt;=</span> <span class="dv">127</span>  </span>
-<span id="cb16-35"><a href="#cb16-35"></a><span class="cf">assert</span> <span class="fl">0.5</span> <span class="op">&lt;=</span> bw_range <span class="op">&lt;=</span> <span class="dv">50</span></span>
-<span id="cb16-36"><a href="#cb16-36"></a><span class="cf">assert</span> <span class="op">-</span><span class="dv">180</span> <span class="op">&lt;=</span> bw_direction <span class="op">&lt;=</span> <span class="dv">180</span></span>
-<span id="cb16-37"><a href="#cb16-37"></a><span class="cf">assert</span> <span class="dv">5</span> <span class="op">&lt;=</span> bw_spread_angle <span class="op">&lt;=</span> <span class="dv">270</span></span>
-<span id="cb16-38"><a href="#cb16-38"></a></span>
-<span id="cb16-39"><a href="#cb16-39"></a><span class="co"># 以下、適切に「当たり判定」ができているかを確認するための処理です。</span></span>
-<span id="cb16-40"><a href="#cb16-40"></a><span class="co"># 現時点では深く理解する必要はありません</span></span>
-<span id="cb16-41"><a href="#cb16-41"></a></span>
-<span id="cb16-42"><a href="#cb16-42"></a><span class="kw">def</span> render_graph():</span>
-<span id="cb16-43"><a href="#cb16-43"></a></span>
-<span id="cb16-44"><a href="#cb16-44"></a>  xp <span class="op">=</span> x1<span class="op">+</span>math.cos(math.radians(<span class="op">-</span>bw_direction<span class="op">+</span><span class="dv">90</span>))<span class="op">*</span>bw_range</span>
-<span id="cb16-45"><a href="#cb16-45"></a>  yp <span class="op">=</span> y1<span class="op">+</span>math.sin(math.radians(<span class="op">-</span>bw_direction<span class="op">+</span><span class="dv">90</span>))<span class="op">*</span>bw_range</span>
-<span id="cb16-46"><a href="#cb16-46"></a></span>
-<span id="cb16-47"><a href="#cb16-47"></a>  fig,ax<span class="op">=</span>plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>), facecolor<span class="op">=</span><span class="st">&#39;white&#39;</span>, dpi<span class="op">=</span><span class="dv">96</span>)</span>
-<span id="cb16-48"><a href="#cb16-48"></a>  ax.scatter(x1,y1,c<span class="op">=</span><span class="st">&#39;tab:blue&#39;</span>,s<span class="op">=</span><span class="dv">80</span>)</span>
-<span id="cb16-49"><a href="#cb16-49"></a></span>
-<span id="cb16-50"><a href="#cb16-50"></a>  ax.plot([x1,xp],[y1,yp],ls<span class="op">=</span><span class="st">&#39;--&#39;</span>,lw<span class="op">=</span><span class="fl">0.75</span>)</span>
-<span id="cb16-51"><a href="#cb16-51"></a>  ax.set_aspect(<span class="st">&#39;equal&#39;</span>, adjustable<span class="op">=</span><span class="st">&#39;box&#39;</span>)</span>
-<span id="cb16-52"><a href="#cb16-52"></a>  margin <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb16-53"><a href="#cb16-53"></a>  ax.set_xlim( <span class="bu">min</span>(x1,x2)<span class="op">-</span>margin, <span class="bu">max</span>(x1,x2)<span class="op">+</span>margin )</span>
-<span id="cb16-54"><a href="#cb16-54"></a>  ax.set_ylim( <span class="bu">min</span>(y1,y2)<span class="op">-</span>margin, <span class="bu">max</span>(y1,y2)<span class="op">+</span>margin )</span>
-<span id="cb16-55"><a href="#cb16-55"></a></span>
-<span id="cb16-56"><a href="#cb16-56"></a>  sector <span class="op">=</span> patches.Wedge((x1,y1),bw_range,</span>
-<span id="cb16-57"><a href="#cb16-57"></a>                        <span class="op">-</span>bw_direction <span class="op">-</span> bw_spread_angle<span class="op">/</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">90</span>,</span>
-<span id="cb16-58"><a href="#cb16-58"></a>                        <span class="op">-</span>bw_direction <span class="op">+</span> bw_spread_angle<span class="op">/</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">90</span>,</span>
-<span id="cb16-59"><a href="#cb16-59"></a>                        width<span class="op">=</span>bw_range, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb16-60"><a href="#cb16-60"></a>  ax.add_patch(sector)</span>
-<span id="cb16-61"><a href="#cb16-61"></a></span>
-<span id="cb16-62"><a href="#cb16-62"></a>  ax.scatter(x2,y2,c<span class="op">=</span><span class="st">&#39;tab:red&#39;</span>)</span>
-<span id="cb16-63"><a href="#cb16-63"></a>  t <span class="op">=</span> ax.text(<span class="fl">0.02</span>, <span class="fl">0.98</span>, <span class="ss">f&#39;射程距離 : </span><span class="sc">{</span>bw_range<span class="sc">}</span><span class="ch">\n</span><span class="ss">攻撃方向 : </span><span class="sc">{</span>bw_direction<span class="sc">}</span><span class="ss">°</span><span class="ch">\n</span><span class="ss">拡がり角 : </span><span class="sc">{</span>bw_spread_angle<span class="sc">}</span><span class="ss">°&#39;</span>,</span>
-<span id="cb16-64"><a href="#cb16-64"></a>          va<span class="op">=</span><span class="st">&#39;top&#39;</span>, ha<span class="op">=</span><span class="st">&#39;left&#39;</span>, transform<span class="op">=</span>ax.transAxes)</span>
-<span id="cb16-65"><a href="#cb16-65"></a>  t.set_path_effects([pe.Stroke(linewidth<span class="op">=</span><span class="dv">4</span>,foreground<span class="op">=</span><span class="st">&#39;white&#39;</span>),pe.Normal()])</span>
-<span id="cb16-66"><a href="#cb16-66"></a></span>
-<span id="cb16-67"><a href="#cb16-67"></a>  ax.grid()</span>
-<span id="cb16-68"><a href="#cb16-68"></a>  ax.set_axisbelow(<span class="va">True</span>)</span>
-<span id="cb16-69"><a href="#cb16-69"></a>  ax.tick_params(direction<span class="op">=</span><span class="st">&#39;inout&#39;</span>)</span>
-<span id="cb16-70"><a href="#cb16-70"></a>  plt.show()</span>
-<span id="cb16-71"><a href="#cb16-71"></a></span>
-<span id="cb16-72"><a href="#cb16-72"></a>render_graph()</span></code></pre></div>
+      <div class="sourceCode" id="cb18" data-caption="演習4"><pre
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="im">import</span> math</span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="im">import</span> japanize_matplotlib</span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="im">import</span> matplotlib.patheffects <span class="im">as</span> pe</span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="im">from</span> matplotlib <span class="im">import</span> patches</span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="im">from</span> matplotlib_inline.backend_inline <span class="im">import</span> set_matplotlib_formats</span>
+<span id="cb18-8"><a href="#cb18-8"></a>set_matplotlib_formats(<span class="st">&#39;svg&#39;</span>)</span>
+<span id="cb18-9"><a href="#cb18-9"></a>plt.rcParams[<span class="st">&#39;mathtext.fontset&#39;</span>] <span class="op">=</span> <span class="st">&#39;cm&#39;</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a></span>
+<span id="cb18-11"><a href="#cb18-11"></a><span class="co"># ▼▼▼ 基本的な書き換え範囲（ここから）</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a></span>
+<span id="cb18-13"><a href="#cb18-13"></a><span class="co"># 自キャラ位置</span></span>
+<span id="cb18-14"><a href="#cb18-14"></a>x1 <span class="op">=</span> <span class="fl">5.5</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a>y1 <span class="op">=</span> <span class="op">-</span><span class="fl">10.0</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a></span>
+<span id="cb18-17"><a href="#cb18-17"></a><span class="co"># 敵キャラ位置</span></span>
+<span id="cb18-18"><a href="#cb18-18"></a>x2 <span class="op">=</span> <span class="fl">15.2</span></span>
+<span id="cb18-19"><a href="#cb18-19"></a>y2 <span class="op">=</span> <span class="fl">10.6</span></span>
+<span id="cb18-20"><a href="#cb18-20"></a></span>
+<span id="cb18-21"><a href="#cb18-21"></a><span class="co"># 射程距離、攻撃方向、拡がり角</span></span>
+<span id="cb18-22"><a href="#cb18-22"></a>bw_range <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb18-23"><a href="#cb18-23"></a>bw_direction <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb18-24"><a href="#cb18-24"></a>bw_spread_angle <span class="op">=</span> <span class="dv">70</span></span>
+<span id="cb18-25"><a href="#cb18-25"></a></span>
+<span id="cb18-26"><a href="#cb18-26"></a><span class="co"># 判定処理</span></span>
+<span id="cb18-27"><a href="#cb18-27"></a><span class="bu">print</span>(<span class="st">&#39;Miss.&#39;</span>)</span>
+<span id="cb18-28"><a href="#cb18-28"></a></span>
+<span id="cb18-29"><a href="#cb18-29"></a><span class="co"># ▲▲▲ 基本的な書き換え範囲（ここまで）</span></span>
+<span id="cb18-30"><a href="#cb18-30"></a></span>
+<span id="cb18-31"><a href="#cb18-31"></a><span class="cf">assert</span> <span class="op">-</span><span class="dv">128</span> <span class="op">&lt;=</span> x1 <span class="op">&lt;=</span> <span class="dv">127</span>  </span>
+<span id="cb18-32"><a href="#cb18-32"></a><span class="cf">assert</span> <span class="op">-</span><span class="dv">128</span> <span class="op">&lt;=</span> y1 <span class="op">&lt;=</span> <span class="dv">127</span>  </span>
+<span id="cb18-33"><a href="#cb18-33"></a><span class="cf">assert</span> <span class="op">-</span><span class="dv">128</span> <span class="op">&lt;=</span> x2 <span class="op">&lt;=</span> <span class="dv">127</span>  </span>
+<span id="cb18-34"><a href="#cb18-34"></a><span class="cf">assert</span> <span class="op">-</span><span class="dv">128</span> <span class="op">&lt;=</span> y2 <span class="op">&lt;=</span> <span class="dv">127</span>  </span>
+<span id="cb18-35"><a href="#cb18-35"></a><span class="cf">assert</span> <span class="fl">0.5</span> <span class="op">&lt;=</span> bw_range <span class="op">&lt;=</span> <span class="dv">50</span></span>
+<span id="cb18-36"><a href="#cb18-36"></a><span class="cf">assert</span> <span class="op">-</span><span class="dv">180</span> <span class="op">&lt;=</span> bw_direction <span class="op">&lt;=</span> <span class="dv">180</span></span>
+<span id="cb18-37"><a href="#cb18-37"></a><span class="cf">assert</span> <span class="dv">5</span> <span class="op">&lt;=</span> bw_spread_angle <span class="op">&lt;=</span> <span class="dv">270</span></span>
+<span id="cb18-38"><a href="#cb18-38"></a></span>
+<span id="cb18-39"><a href="#cb18-39"></a><span class="co"># 以下、適切に「当たり判定」ができているかを確認するための処理です。</span></span>
+<span id="cb18-40"><a href="#cb18-40"></a><span class="co"># 現時点では深く理解する必要はありません</span></span>
+<span id="cb18-41"><a href="#cb18-41"></a></span>
+<span id="cb18-42"><a href="#cb18-42"></a><span class="kw">def</span> render_graph():</span>
+<span id="cb18-43"><a href="#cb18-43"></a></span>
+<span id="cb18-44"><a href="#cb18-44"></a>  xp <span class="op">=</span> x1<span class="op">+</span>math.cos(math.radians(<span class="op">-</span>bw_direction<span class="op">+</span><span class="dv">90</span>))<span class="op">*</span>bw_range</span>
+<span id="cb18-45"><a href="#cb18-45"></a>  yp <span class="op">=</span> y1<span class="op">+</span>math.sin(math.radians(<span class="op">-</span>bw_direction<span class="op">+</span><span class="dv">90</span>))<span class="op">*</span>bw_range</span>
+<span id="cb18-46"><a href="#cb18-46"></a></span>
+<span id="cb18-47"><a href="#cb18-47"></a>  fig,ax<span class="op">=</span>plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>), facecolor<span class="op">=</span><span class="st">&#39;white&#39;</span>, dpi<span class="op">=</span><span class="dv">96</span>)</span>
+<span id="cb18-48"><a href="#cb18-48"></a>  ax.scatter(x1,y1,c<span class="op">=</span><span class="st">&#39;tab:blue&#39;</span>,s<span class="op">=</span><span class="dv">80</span>)</span>
+<span id="cb18-49"><a href="#cb18-49"></a></span>
+<span id="cb18-50"><a href="#cb18-50"></a>  ax.plot([x1,xp],[y1,yp],ls<span class="op">=</span><span class="st">&#39;--&#39;</span>,lw<span class="op">=</span><span class="fl">0.75</span>)</span>
+<span id="cb18-51"><a href="#cb18-51"></a>  ax.set_aspect(<span class="st">&#39;equal&#39;</span>, adjustable<span class="op">=</span><span class="st">&#39;box&#39;</span>)</span>
+<span id="cb18-52"><a href="#cb18-52"></a>  margin <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb18-53"><a href="#cb18-53"></a>  ax.set_xlim( <span class="bu">min</span>(x1,x2)<span class="op">-</span>margin, <span class="bu">max</span>(x1,x2)<span class="op">+</span>margin )</span>
+<span id="cb18-54"><a href="#cb18-54"></a>  ax.set_ylim( <span class="bu">min</span>(y1,y2)<span class="op">-</span>margin, <span class="bu">max</span>(y1,y2)<span class="op">+</span>margin )</span>
+<span id="cb18-55"><a href="#cb18-55"></a></span>
+<span id="cb18-56"><a href="#cb18-56"></a>  sector <span class="op">=</span> patches.Wedge((x1,y1),bw_range,</span>
+<span id="cb18-57"><a href="#cb18-57"></a>                        <span class="op">-</span>bw_direction <span class="op">-</span> bw_spread_angle<span class="op">/</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">90</span>,</span>
+<span id="cb18-58"><a href="#cb18-58"></a>                        <span class="op">-</span>bw_direction <span class="op">+</span> bw_spread_angle<span class="op">/</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">90</span>,</span>
+<span id="cb18-59"><a href="#cb18-59"></a>                        width<span class="op">=</span>bw_range, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb18-60"><a href="#cb18-60"></a>  ax.add_patch(sector)</span>
+<span id="cb18-61"><a href="#cb18-61"></a></span>
+<span id="cb18-62"><a href="#cb18-62"></a>  ax.scatter(x2,y2,c<span class="op">=</span><span class="st">&#39;tab:red&#39;</span>)</span>
+<span id="cb18-63"><a href="#cb18-63"></a>  t <span class="op">=</span> ax.text(<span class="fl">0.02</span>, <span class="fl">0.98</span>, <span class="ss">f&#39;射程距離 : </span><span class="sc">{</span>bw_range<span class="sc">}</span><span class="ch">\n</span><span class="ss">攻撃方向 : </span><span class="sc">{</span>bw_direction<span class="sc">}</span><span class="ss">°</span><span class="ch">\n</span><span class="ss">拡がり角 : </span><span class="sc">{</span>bw_spread_angle<span class="sc">}</span><span class="ss">°&#39;</span>,</span>
+<span id="cb18-64"><a href="#cb18-64"></a>          va<span class="op">=</span><span class="st">&#39;top&#39;</span>, ha<span class="op">=</span><span class="st">&#39;left&#39;</span>, transform<span class="op">=</span>ax.transAxes)</span>
+<span id="cb18-65"><a href="#cb18-65"></a>  t.set_path_effects([pe.Stroke(linewidth<span class="op">=</span><span class="dv">4</span>,foreground<span class="op">=</span><span class="st">&#39;white&#39;</span>),pe.Normal()])</span>
+<span id="cb18-66"><a href="#cb18-66"></a></span>
+<span id="cb18-67"><a href="#cb18-67"></a>  ax.grid()</span>
+<span id="cb18-68"><a href="#cb18-68"></a>  ax.set_axisbelow(<span class="va">True</span>)</span>
+<span id="cb18-69"><a href="#cb18-69"></a>  ax.tick_params(direction<span class="op">=</span><span class="st">&#39;inout&#39;</span>)</span>
+<span id="cb18-70"><a href="#cb18-70"></a>  plt.show()</span>
+<span id="cb18-71"><a href="#cb18-71"></a></span>
+<span id="cb18-72"><a href="#cb18-72"></a>render_graph()</span></code></pre></div>
       <!-- ---------------------------------------- -->
     </main>
 
