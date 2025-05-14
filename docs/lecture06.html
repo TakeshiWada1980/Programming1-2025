@@ -115,6 +115,10 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
       <li><code>PG1-第06回講義.ipynb</code>
       という名前で「GoogleColabノートブック」を作成しておいてください。</li>
       </ul></li>
+      <li><p>今回の講義では、ここまでに学んだ「変数」「条件分岐構文」「繰返し構文」「f文字列」などを総合した演習課題に取り組んでもらいます。自身の定着度合いを測る指標としてください。</p>
+      <ul>
+      <li>学習内容が十分に定着していないと感じた場合は、学習方法を見直してください。</li>
+      </ul></li>
       <li><p>14:20
       になったらHR教室に戻り、その後「歯科検診」に向かってください。この部屋には荷物を置いていかないようにしてください。</p></li>
       </ul>
@@ -226,9 +230,13 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
       <li>南北のみに移動するケース、東西のみに移動するケースにおいて句点「、」の出力に注意してください。</li>
       <li>基本的なプログラムなので、Geminiなどの生成AIは、十分に悩んで手を尽くしてから使用してください。最初から生成AIに頼ると、演習を通じて得られる学びと経験は半分からゼロになってしまいます。
       <ul>
-      <li>自分の理解や解釈が適切かを生成AIに確認してもらう → 👍</li>
-      <li>自分の疑問を生成AIに尋ねる → 👍</li>
-      <li>直接的にコードを書いてもらう → 🙅(学習フェーズでは絶対NG)</li>
+      <li>自分の理解や解釈が適切かを生成AIに確認してもらう → 👍
+      (これは問題なし、学びの効果大)</li>
+      <li>自分の疑問を生成AIに尋ねる → 👍
+      (これも問題なし、学びの効果大)</li>
+      <li>直接的にプログラムコードを書いてもらう（あるいは修正してもらう）
+      → 🙅
+      (<strong>学習フェーズではNG</strong>。今回は原則として使用しない)</li>
       <li>自分が理解していないコードは、絶対に解答しないでください。以下の「<strong>演習2</strong>」から「<strong>演習4</strong>」についても同じです。</li>
       </ul></li>
       <li>まずは、以下のコードをつづけて記述してみてください。</li>
@@ -248,7 +256,8 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
 <span id="cb7-12"><a href="#cb7-12"></a></span></code></pre></div>
       <div class="note type-senior">
       <p><strong>中級者向け</strong></p>
-      <p>上記では、参考として「基本的な書き換え範囲」を示していますが、それにとらわれずに、関数、クラス、例外処理、条件式（三項演算子）などを利用して記述してください。テキストセルに明記すれば、仕様や設定を拡張変更しても問題ありません。</p>
+      <p>上記では、参考として「基本的な書き換え範囲」を示していますが、それにとらわれずに、関数、クラス、例外処理、条件式（三項演算子）などを利用して記述してください。テキストセルに明記すれば、<strong>仕様や設定を拡張変更しても問題ありません</strong>
+      (以降の「演習2」～「演習4」についても同様)。</p>
       </div>
       <h1 data-number="4" id="演習2"><span
       class="header-section-number">4</span> 演習2</h1>
@@ -266,13 +275,18 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
       (<code>x2</code>、<code>y2</code>) とする。</li>
       <li><code>t</code> 秒後のキャラ位置 (座標) を
       (<code>x3</code>、<code>y3</code>) とする。</li>
+      <li>座標 <code>x</code> <code>y</code> は任意の実数、時間
+      <code>t</code> は非負の実数とする。</li>
       <li>移動速度は <strong>1単位距離/秒</strong> とする。
       <ul>
       <li>2秒間に2単位距離、8秒間に8単位距離だけ移動する。</li>
       </ul></li>
       <li>キャラが目標位置に到達したら、その位置に留まるものとする。</li>
-      <li>座標は任意の実数、時間 <code>t</code>
-      は非負の実数とする。</li>
+      <li>キャラの位置と目標位置が同じ場合であっても、適切に処理できること。
+      <ul>
+      <li><code>ZeroDivisionError</code>
+      が発生しないようにすること。</li>
+      </ul></li>
       </ul>
       <h2 data-number="4.2" id="実行例-1"><span
       class="header-section-number">4.2</span> 実行例</h2>
@@ -311,11 +325,6 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
       <li>自キャラの位置から目標位置への方向ベクトルを考え、<span
       class="masked">その単位ベクトルに時間を掛けたものが移動量</span>
       になります。</li>
-      </ul></li>
-      <li>自キャラの位置と目標位置が同じ場合であっても、適切に求められるようにしてください。
-      <ul>
-      <li><code>ZeroDivisionError</code>
-      が発生しないようにしてください。</li>
       </ul></li>
       </ul>
       <div class="sourceCode" id="cb11" data-caption="演習2"><pre
@@ -358,25 +367,32 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
       <ul>
       <li>任意の2点を与えたとき、それを両端とする線分 (図の青線)
       を描き、各端点から長さが <span class="math inline">\(1\)</span>
-      の垂直線（図内の2本の赤線）を描くための4点の座標
+      の垂直線（図内の2本の赤線）を描くための <strong>4点の座標</strong>
       (<code>x1a</code>, <code>y1a</code>)、(<code>x1b</code>,
       <code>y1b</code>)、(<code>x2a</code>,
-      <code>y2a</code>)、(<code>x2b</code>, <code>y2b</code>) を得たい。
+      <code>y2a</code>)、(<code>x2b</code>, <code>y2b</code>)
+      を計算する処理を実装したい。
       <ul>
-      <li>任意の2点を、点1 (<code>x1</code>、<code>y1</code>) および点2
-      (<code>x2</code>、<code>y2</code>) とする。</li>
-      <li>点1（<code>x1</code>、<code>y1</code>）を中点として長さ <span
+      <li>任意の2点を、点1 (<code>x1</code>, <code>y1</code>) および点2
+      (<code>x2</code>, <code>y2</code>) とする。</li>
+      <li>点1（<code>x1</code>, <code>y1</code>）を中点として長さ <span
       class="math inline">\(1\)</span>
-      の垂直線の端点を点1a（<code>x1a</code>、<code>y1a</code>）と点1b（<code>x1b</code>、<code>y1b</code>）とする。</li>
-      <li>点2（<code>x2</code>、<code>y2</code>）を中点として長さ <span
+      の垂直線の端点を点1a（<code>x1a</code>,
+      <code>y1a</code>）と点1b（<code>x1b</code>,
+      <code>y1b</code>）とする。</li>
+      <li>点2（<code>x2</code>, <code>y2</code>）を中点として長さ <span
       class="math inline">\(1\)</span>
-      の垂直線の端点を点2a（<code>x2a</code>、<code>y2a</code>）と点2b（<code>x2b</code>、<code>y2b</code>）とする。</li>
+      の垂直線の端点を点2a（<code>x2a</code>,
+      <code>y2a</code>）と点2b（<code>x2b</code>,
+      <code>y2b</code>）とする。</li>
       </ul></li>
+      <li>点1 と 点2 の座標が同じ場合にも適切に処理できること。</li>
       </ul>
       <figure>
       <img src="figs/06/p3-01.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
       </figure>
+      <p><strong>期待する出力の例</strong></p>
       <pre><code>点1の座標は (1.00,-4.00)
   これを中点とする長さ1の垂直線の両端座標は (1.19,-3.54) と (0.81,-4.46)
 点2の座標は (-5.00,-1.50)
@@ -390,7 +406,8 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
   これを中点とする長さ1の垂直線の両端座標は (2.55,4.22) と (3.45,3.78)
 点2の座標は (1.00,0.00)
   これを中点とする長さ1の垂直線の両端座標は (0.55,0.22) と (1.45,-0.22)</code></pre>
-      <p>(参考)</p>
+      <p>(参考)
+      図の描画は、提供したコードをそのまま利用してください。</p>
       <figure>
       <img src="figs/06/p3-02.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
@@ -489,6 +506,16 @@ class="toc-section-number">6.3</span> ヒントと注意点</a></li>
 <span id="cb15-65"><a href="#cb15-65"></a>  plt.show()</span>
 <span id="cb15-66"><a href="#cb15-66"></a></span>
 <span id="cb15-67"><a href="#cb15-67"></a>render_graph()</span></code></pre></div>
+      <div class="note type-senior">
+      <p><strong>中級者向け</strong></p>
+      <p>ここで図は、<a
+      href="https://matplotlib.org/stable/gallery/index.html">Matplotlib</a>
+      というライブラリを利用して描画しています。授業では<a
+      href="https://takeshiwada1980.github.io/Programming1-2024/lecture11.html#斜方投射のシミュレーションと可視化">第11回講義</a>以降で、正式に扱います。</p>
+      <p>この演習問題は、NumPy の <code>ndarray</code> という行列
+      (ベクトル)
+      を扱うオブジェクト利用するとスマートに実装することができます。</p>
+      </div>
       <h1 data-number="6" id="演習4"><span
       class="header-section-number">6</span> 演習4</h1>
       <p>ソフトウェアエンジニアを目指すW君（高専2年生）は、プログラミングのスキルアップのために友人と共にゲームづくりに取り組んでいる。</p>
