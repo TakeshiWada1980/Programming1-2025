@@ -69,14 +69,14 @@ class="toc-section-number">4.1</span>
 class="toc-section-number">4.2</span> MD5 Sum の確認</a></li>
 <li><a href="#インストール" id="toc-インストール"><span
 class="toc-section-number">4.3</span> インストール</a></li>
-<li><a href="#正常にインストールされたことの確認1"
-id="toc-正常にインストールされたことの確認1"><span
-class="toc-section-number">4.4</span>
-正常にインストールされたことの確認1</a></li>
-<li><a href="#正常にインストールされたことの確認2"
-id="toc-正常にインストールされたことの確認2"><span
-class="toc-section-number">4.5</span>
-正常にインストールされたことの確認2</a></li>
+<li><a href="#正常にインストールされたことの確認-1"
+id="toc-正常にインストールされたことの確認-1"><span
+class="toc-section-number">4.4</span> 正常にインストールされたことの確認
+1</a></li>
+<li><a href="#正常にインストールされたことの確認-2"
+id="toc-正常にインストールされたことの確認-2"><span
+class="toc-section-number">4.5</span> 正常にインストールされたことの確認
+2</a></li>
 <li><a href="#path設定" id="toc-path設定"><span
 class="toc-section-number">4.6</span> Path設定</a></li>
 <li><a href="#pipの基本" id="toc-pipの基本"><span
@@ -228,8 +228,9 @@ class="toc-section-number">8</span> 演習</a></li>
       <strong>ユーザーフォルダ</strong> (ホームディレクトリ)
       の名前になります。</p>
       <p>ここに <span class="masked">日本語や特殊文字</span>
-      を含んでいる場合は、Python開発用に、別途、Windowsのアカウントを新規作成し、それを使用してください。アカウントの追加方法は
-      <a
+      を含んでいる場合は、Python 開発用に、別途、Windows
+      のアカウントを新規作成し、それを使用することを
+      <strong>強く推奨</strong> します。アカウントの追加方法は <a
       href="https://www.google.com/search?q=windows+11+アカウント+追加">windows
       11 アカウント 追加</a> などで検索してください。</p>
       <h1 data-number="3"
@@ -405,12 +406,14 @@ CertUtil: -hashfile コマンドは正常に完了しました。</code></pre>
       class="masked">Add python.exe to PATH</span>
       の<strong>両方にチェックを入れて</strong>「Install
       Now」を選択します。</p>
-      <p>既にPython (3.12.x以下) がインストールされている環境では「Use
+      <p>既にPython (3.13.x 以下) がインストールされている環境では「Use
       admin privileges when installing py.exe
       」のチェックボックスがグレーアウトしていることもあります
-      (その場合は、チェック不要です)。また、3.12.X
+      (その場合は、チェック不要です)。また、3.13.X
       がインストールされている環境ではアップグレードを促す画面になるので、アップグレードをしてください。</p>
-      <p><strong><em>以下のスクリーンショットは「3.11.4」のものです。適宜、読み替えてください。</em></strong></p>
+      <div class="note type-caution">
+      <p><strong>以降のスクリーンショットは「3.11.4」のものです。適宜、読み替えてください。</strong></p>
+      </div>
       <figure>
       <img src="figs/09/py_inst_01.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
@@ -426,9 +429,9 @@ CertUtil: -hashfile コマンドは正常に完了しました。</code></pre>
       に対してパスを通します。詳細は後述します。チェックを入れておいてください。</li>
       </ul>
       <h2 data-number="4.4"
-      id="正常にインストールされたことの確認1"><span
+      id="正常にインストールされたことの確認-1"><span
       class="header-section-number">4.4</span>
-      正常にインストールされたことの確認1</h2>
+      正常にインストールされたことの確認 1</h2>
       <p>ターミナルを「<strong>再起動</strong>」して、モードを「コマンドプロンプト」に切り替えてください。</p>
       <figure>
       <img src="figs/09/terminal-1.png" alt="img" />
@@ -446,7 +449,8 @@ Python 3.13.5</code></pre>
       (インタラクティブシェル)
       で起動してしまった場合は、<code>&gt;&gt;&gt;</code> に続けて <span
       class="masked"><code>quit()</code></span>
-      を入力してください。対話モードのPythonが終了してターミナルに戻ります。</p>
+      を入力してください。対話モードの Python
+      が終了してターミナルに戻ります。</p>
       <pre><code>C:\Users\wada&gt;python
 Python 3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)] on win32
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
@@ -458,9 +462,9 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 &#39;python&#39; は、内部コマンドまたは外部コマンド、
 操作可能なプログラムまたはバッチ ファイルとして認識されていません。</code></pre>
       <h2 data-number="4.5"
-      id="正常にインストールされたことの確認2"><span
+      id="正常にインストールされたことの確認-2"><span
       class="header-section-number">4.5</span>
-      正常にインストールされたことの確認2</h2>
+      正常にインストールされたことの確認 2</h2>
       <p>通常は利用することはありませんが、最も基本的 (原始的) な
       <strong>Pythonプログラムの実行方法</strong>
       を確認しておきます。</p>
@@ -471,14 +475,14 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
       class="masked"><code>%reset -f</code>
       などのマジックコマンド</span> は使用することはできません
       (記述すると <strong>SyntaxError</strong> になります)。</p>
-      <div class="sourceCode" id="cb8" data-caption="test-01.py"><pre
+      <div class="sourceCode" id="cb8" data-caption="test.py"><pre
       class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">print</span>(<span class="st">&#39;A*Bの計算をします。&#39;</span>)</span>
 <span id="cb8-2"><a href="#cb8-2"></a>a <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&#39;Aの値を入力してください: &#39;</span>))</span>
 <span id="cb8-3"><a href="#cb8-3"></a>b <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&#39;Bの値を入力してください: &#39;</span>))</span>
 <span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(<span class="ss">f&#39;</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">+</span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">=</span><span class="sc">{</span>a<span class="op">+</span>b<span class="sc">}</span><span class="ss"> です。&#39;</span>)</span></code></pre></div>
       <p>ファイル保存の際は、文字コード (エンコード) は
       <code>utf-8</code>
-      にしてください。また、ファイルの種類も「すべてのファイル」にしてください。</p>
+      にしてください。また、ファイルの種類も「<strong>すべてのファイル</strong>」にしてください。</p>
       <figure>
       <img src="figs/09/notepad-save.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
@@ -494,13 +498,14 @@ Aの値を入力してください: 10
 Bの値を入力してください: 20
 10.0+20.0=30.0 です。</code></pre>
       <ul>
-      <li><code>%reset -f</code>
-      を記述して実行するとどのようになるか確認せよ。</li>
+      <li><code>test.py</code> の第01行目に <code>%reset -f</code>
+      を記述して、<code>python test.py</code>
+      を実行するとどのようになるか確認せよ。</li>
       </ul>
       <h2 data-number="4.6" id="path設定"><span
       class="header-section-number">4.6</span> Path設定</h2>
       <p>Pythonをデフォルト設定でインストールすると
-      <code>C:\Users\wada\AppData\Local\Programs\Python\Python313Python 3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)] on win32 Type "help", "copyright", "credits" or "license" for more information. &gt;&gt;&gt; .\</code>
+      <code>C:\Users\wada\AppData\Local\Programs\Python\Python313</code>
       にインストールされます。実際にエクスプローラで、そのフォルダにアクセスしてみてください
       (<code>wada</code>の部分は各自のユーザーフォルダの名前に書き換えてください)
       。</p>
@@ -549,14 +554,13 @@ Python 3.13.5</code></pre>
       もPythonプログラムのひとつです)。このコマンドは定期的に使用するので覚えておくようにしてください
       (すぐに探せる場所にメモしておいてください)。</p>
       <pre><code>C:\Users\wada&gt;python -m pip install --upgrade pip
-Requirement already satisfied: pip in c:\users\wada\appdata\local\programs\python\python311\lib\site-packages (24.0)</code></pre>
+Requirement already satisfied: pip in c:\users\wada\appdata\local\programs\python\python313\lib\site-packages (24.0)</code></pre>
       <p>現在の環境にインストールされているPythonライブラリは
       <code>pip list</code> というコマンドで確認ができます。</p>
       <pre><code>C:\Users\wada\Desktop&gt;pip list
-Package    Version
----------- -------
-pip        24.0
-setuptools 65.5.0</code></pre>
+Package Version
+------- -------
+pip     25.1.1</code></pre>
       <p>上記のように、初期状態では最低限のモジュールしかインストールされていません。以降、各種モジュールをインストールする方法を紹介しますが、それらは環境をクリーンに保ちトラブルを避けるために、<span
       class="masked">仮想環境</span>
       を作成したうえで、そこにインストールしていきます。</p>
@@ -598,10 +602,15 @@ RemoteSigned</code></pre>
       <h2 data-number="5.1" id="インストーラの実行"><span
       class="header-section-number">5.1</span> インストーラの実行</h2>
       <p>Visual Studio Code installer
-      <code>VSCodeUserSetup-x64-1.90.2.exe</code>
+      <code>VSCodeUserSetup-x64-1.101.1.exe</code>
       を実行してください。インストール途中で尋ねられる<span
       class="masked">「追加タスクの選択」</span>では、少なくとも次の項目にはチェックをいれてください
       (それ以外は好みに合わせてチェックをいれてください)。これらの設定ができていることを前提に授業を進めます。</p>
+      <p><strong>必ず、以下のオプション設定を実行してください。インストール後に設定することは、非常に面倒です。</strong></p>
+      <figure>
+      <img src="figs/09/vs-code-19.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
       <ul>
       <li>エクスプローラのファイルコンテキストメニューに
       <strong>[Codeで開く]</strong> アクションを追加する。</li>
@@ -625,7 +634,6 @@ RemoteSigned</code></pre>
       <li>ms-python.python</li>
       <li>ms-python.vscode-pylance</li>
       <li>ms-toolsai.jupyter</li>
-      <li>mosapride.zenkaku</li>
       <li>oderwat.indent-rainbow</li>
       <li>pkief.material-icon-theme</li>
       <li>ms-python.autopep8</li>
@@ -697,9 +705,9 @@ RemoteSigned</code></pre>
       class="header-section-number">6.1</span>
       プロジェクトフォルダの作成</h2>
       <p>エクスプローラを開き、ドキュメンフォルダのなかに
-      <code>2024-Programming1</code>
+      <code>2025-Programming1</code>
       を作成し、そのなかに移動します。今後は、この
-      <code>2024-Programming1</code> フォルダの内部に
+      <code>2025-Programming1</code> フォルダの内部に
       <strong>各種プロジェクトフォルダ</strong>
       を作成して管理していきます。</p>
       <figure>
@@ -739,7 +747,7 @@ RemoteSigned</code></pre>
       <p>次の <code>venv</code> コマンドを使って <span
       class="masked">Pythonの仮想環境 (Virtual Envronment)</span>
       を作成します。仮想環境内であれば、後先を考えずにPythonライブラリをインストールしても、あとで後悔するような事態は発生しません。</p>
-      <pre><code>PS C:\Users\wada\Documents\2024-Programming1\PG1-09&gt; python -m venv .venv    </code></pre>
+      <pre><code>PS C:\Users\wada\Documents\2025-Programming1\PG1-09&gt; python -m venv .venv    </code></pre>
       <p>上記を実行すると <code>.venv</code>
       という仮想環境に関するものが格納される「隠しフォルダ」が作成されます
       (ドットからはじまる「ファイルは隠しファイル」、ドットからはじまるフォルダは「隠しフォルダ」という扱いになります)。</p>
@@ -749,10 +757,10 @@ RemoteSigned</code></pre>
       </figure>
       <p>次のコマンドで仮想環境を <strong><em>有効化</em></strong>
       します。</p>
-      <pre><code>PS C:\Users\wada\Documents\2024-Programming1\PG1-09&gt; .venv/Scripts/Activate.ps1</code></pre>
+      <pre><code>PS C:\Users\wada\Documents\2025-Programming1\PG1-09&gt; .venv/Scripts/Activate.ps1</code></pre>
       <p>ターミナルのプロンプトの先頭表示が <code>(.venv)</code>
       に変わっていることを確認します。仮想環境が有効化されているときは、このような表示になるので覚えておいてください。</p>
-      <pre><code>(.venv) PS C:\Users\wada\Documents\2024-Programming1\PG1-09&gt; </code></pre>
+      <pre><code>(.venv) PS C:\Users\wada\Documents\2025-Programming1\PG1-09&gt; </code></pre>
       <h2 data-number="6.3"
       id="pythonファイルの新規作成とコードの記述"><span
       class="header-section-number">6.3</span>
