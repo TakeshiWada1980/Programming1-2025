@@ -155,8 +155,8 @@ class="toc-section-number">8</span> 演習</a></li>
       <h1 data-number="1" id="準備"><span
       class="header-section-number">1</span> 準備</h1>
       <ul>
-      <li><p>事前連絡したように、次のファイルを予めダウンロードしておいてください。</p></li>
-      <li><p>ダウンロードしたファイルは「デスクトップ」に移動しておいてください。以降、デスクトップに各ファイルが置かれていることを前提に解説します。</p>
+      <li>小テスト❸ を実施します。</li>
+      <li>事前連絡したように、次のファイルを予めダウンロードして「デスクトップ」に移動しておいてください。以降、それを前提とした解説となります。
       <ol type="1">
       <li>Python 3.13.5 Windows installer (64-bit)
       <code>python-3.13.5-amd64.exe</code><a
@@ -176,9 +176,9 @@ class="toc-section-number">8</span> 演習</a></li>
       配下に各種プロジェクトフォルダ作成することを想定ています（パスのなかの
       <code>&lt;ユーザ名&gt;</code>
       は各自の環境に読み替えてください）。</p>
-      <p>もし、このフォルダが OneDrive
-      で同期されていたり、<code>&lt;ユーザ名&gt;</code>
-      に日本語や記号が含まれる場合は、講義資料の手順どおりに作業しても、期待どおりの結果が得られない可能性があります。これらに該当する場合は、</p>
+      <p>もし、このフォルダが <strong>OneDrive
+      で同期されていたり</strong>、<code>&lt;ユーザ名&gt;</code>
+      に<strong>日本語や記号が含まれる場合</strong>は、講義資料の手順どおりに作業しても、期待どおりの結果が得られない可能性があります。これらに該当する場合は、</p>
       <pre><code>C:\Users\xxxx\Documents</code></pre>
       <p>を</p>
       <pre><code>C:\Projects</code></pre>
@@ -188,11 +188,12 @@ class="toc-section-number">8</span> 演習</a></li>
       は存在しないので、事前に手動で作成してください。<br />
       </li>
       <li><strong>OneDrive 同期フォルダ</strong> や
-      <strong>日本語・記号を含むパスで発生したトラブル</strong>については、いかなる場合もサポートできないので、あらかじめご了承ください。</li>
+      <strong>日本語・記号を含むパスで発生したトラブル</strong>については、本授業のサポート外なので、あらかじめご了承ください。</li>
       </ul>
       <p>個人もしくは学校のマイクロソフトアカウントの OneDrive
-      の設定で、以下の箇所が「<strong>オン</strong>」になっている場合、<code>C:\Users\&lt;ユーザ名&gt;\Documents</code>
-      が OneDrive 同期の対象となります。</p>
+      の設定で、以下の箇所 (赤枠の部分)
+      が「<strong>オン</strong>」になっている場合、<code>C:\Users\&lt;ユーザ名&gt;\Documents</code>
+      が OneDrive 同期の対象となっています。</p>
       <figure>
       <img src="figs/09/onedrive-01.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
@@ -794,6 +795,17 @@ RemoteSigned</code></pre>
       <img src="figs/09/vs-code-20.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
       </figure>
+      <div class="note type-senior">
+      <p><strong>.venvフォルダの内容</strong></p>
+      <p><code>python -m venv .venv</code>
+      コマンドで仮想環境を構築すると <code>.venv</code>
+      フォルダに仮想環境のための各種ファイルがインストールされます。また、後述する
+      <code>pip</code>
+      コマンドでライブラリをインストールすると、そのライブラリ本体も
+      <code>.venv</code> のなかにインストールされます。</p>
+      <p>基本的には、<code>.venv</code>
+      フォルダの内容をユーザが直接編集することはありません。下手に編集すると仮想環境が破壊される可能性があるため注意してください。</p>
+      </div>
       <h2 data-number="6.3"
       id="pythonファイルの新規作成とコードの記述"><span
       class="header-section-number">6.3</span>
@@ -895,6 +907,19 @@ RemoteSigned</code></pre>
       <img src="figs/09/vs-code-22.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
       </figure>
+      <div class="note type-senior">
+      <p><strong>.venvフォルダの内容 (その2)</strong></p>
+      <p><code>pip install jupyter</code>
+      コマンドによって、多数のライブラリがインストールされますが、それらはすべて
+      <code>.venv</code> フォルダのなかに保存されます。</p>
+      <p>プロジェクトフォルダのなかに Jupyter 環境を構築すると
+      <strong>約300MB</strong>
+      を消費するので、不要になったプロジェクトフォルダは、適宜「破棄」や「再利用」するようにしてください。</p>
+      <figure>
+      <img src="figs/09/vs-code-27.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      </div>
       <h2 data-number="7.2" id="ノートブックの新規作成と実行"><span
       class="header-section-number">7.2</span>
       ノートブックの新規作成と実行</h2>
@@ -972,7 +997,8 @@ RemoteSigned</code></pre>
       <div class="note type-caution">
       <p><strong>プロジェクトフォルダを適切にオープンしていない例</strong></p>
       <p>以下の図のように、<code>.venv</code>
-      を直下に持たないフォルダをオープンすると<strong>仮想環境が有効化されません</strong>。</p>
+      を直下に持っていないフォルダをオープンすると、<strong>仮想環境が有効化されません</strong>
+      (仮想環境の自動検出と自動有効化がされません)。</p>
       <figure>
       <img src="figs/09/vs-code-25.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
@@ -980,7 +1006,8 @@ RemoteSigned</code></pre>
       </div>
       <h1 data-number="8" id="演習"><span
       class="header-section-number">8</span> 演習</h1>
-      <p>繰返し練習してください。</p>
+      <p>ここまでに作成した <strong>PG1-09</strong>
+      を削除して、再度、環境を構築してください。また、以下についても復習しておいてください。</p>
       <ul>
       <li>VS Code を使ったプロジェクトの新規作成と破棄の練習</li>
       <li>VS Code の拡張機能</li>
