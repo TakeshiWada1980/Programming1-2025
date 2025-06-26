@@ -65,8 +65,10 @@ Python のインストール</a>
 id="toc-リリース情報の確認とインストーラの入手"><span
 class="toc-section-number">4.1</span>
 リリース情報の確認とインストーラの入手</a></li>
-<li><a href="#md5-sum-の確認" id="toc-md5-sum-の確認"><span
-class="toc-section-number">4.2</span> MD5 Sum の確認</a></li>
+<li><a href="#md5-sum-の確認-オプション"
+id="toc-md5-sum-の確認-オプション"><span
+class="toc-section-number">4.2</span> MD5 Sum の確認
+(オプション)</a></li>
 <li><a href="#インストール" id="toc-インストール"><span
 class="toc-section-number">4.3</span> インストール</a></li>
 <li><a href="#正常にインストールされたことの確認-1"
@@ -133,6 +135,8 @@ class="toc-section-number">7.2</span>
 ノートブックの新規作成と実行</a></li>
 <li><a href="#注意点" id="toc-注意点"><span
 class="toc-section-number">7.3</span> 注意点</a></li>
+<li><a href="#作業の再開" id="toc-作業の再開"><span
+class="toc-section-number">7.4</span> 作業の再開</a></li>
 </ul></li>
 <li><a href="#演習" id="toc-演習"><span
 class="toc-section-number">8</span> 演習</a></li>
@@ -153,7 +157,7 @@ class="toc-section-number">8</span> 演習</a></li>
       <ul>
       <li><p>事前連絡したように、次のファイルを予めダウンロードしておいてください。</p></li>
       <li><p>ダウンロードしたファイルは「デスクトップ」に移動しておいてください。以降、デスクトップに各ファイルが置かれていることを前提に解説します。</p>
-      <ul>
+      <ol type="1">
       <li>Python 3.13.5 Windows installer (64-bit)
       <code>python-3.13.5-amd64.exe</code><a
       href="https://www.python.org/downloads/release/python-3135/">入手先</a></li>
@@ -163,7 +167,7 @@ class="toc-section-number">8</span> 演習</a></li>
       <li>Source Han Code JP | 源ノ角ゴシック Code
       <code>SourceHanCodeJP.ttc</code><a
       href="https://github.com/adobe-fonts/source-han-code-jp/releases">入手先</a></li>
-      </ul></li>
+      </ol></li>
       </ul>
       <div class="note type-caution">
       <p><strong>注意</strong></p>
@@ -319,9 +323,13 @@ class="toc-section-number">8</span> 演習</a></li>
       <p>公式ページにアクセスして、メニューの「<strong>Downloads</strong>」から「<strong>Windows</strong>」を選択して
       <a
       href="https://www.python.org/downloads/windows/">Windows向けのPythonのリリース状況</a>
-      を確認します。「リリース」とは <span
+      を確認します。</p>
+      <div class="note type-tips">
+      <p><strong>「リリース」とは</strong></p>
+      <p>リリース (Releases) とは <span
       class="masked">ソフトウェアやその新バージョンを一般公開すること、ユーザーが入手可能・利用可能な状態にすること</span>
       を意味します。</p>
+      </div>
       <p>2025年６月23日段階では、<strong>安定版</strong> (Stable
       Releases) として「Python 3.<strong>13</strong>.5」「Python
       3.<strong>12</strong>.10」「Python
@@ -350,7 +358,7 @@ class="toc-section-number">8</span> 演習</a></li>
       <p>Stable Releases
       とは「<strong>安定版</strong>」という意味です。ソフトウェアのインストールにおいては、特段の理由がなければ、この
       Stable Releases (安定版) や LTS (長期サポート版)
-      を選択するようにしください。その他、次のようなバージョンがあります。</p>
+      を選択するようにしてください。その他、次のようなバージョンがあります。</p>
       <ul>
       <li><strong>Long-Term Support Release (LTS) </strong>:
       特定のバージョンについて、長期間にわたりセキュリティ更新やバグ修正を提供するバージョンです。</li>
@@ -367,8 +375,9 @@ class="toc-section-number">8</span> 演習</a></li>
       Release</strong> や <strong>Alpha Release</strong>
       などを含んだ呼称です。</p>
       </div>
-      <h2 data-number="4.2" id="md5-sum-の確認"><span
-      class="header-section-number">4.2</span> MD5 Sum の確認</h2>
+      <h2 data-number="4.2" id="md5-sum-の確認-オプション"><span
+      class="header-section-number">4.2</span> MD5 Sum の確認
+      (オプション)</h2>
       <p>ダウンロードした「ファイルが破損していないか」、あるいは、ダウンロード途中で<strong>中間者攻撃を受けて</strong>「ファイルがすり替えられていないか」、「<strong>ウイルスを埋め込まれていないか</strong>」を確認する方法を紹介します。</p>
       <p>ここでは、<code>python-3.13.5-amd64.exe</code>
       がデスクトップに置かれているものとします。</p>
@@ -411,9 +420,6 @@ CertUtil: -hashfile コマンドは正常に完了しました。</code></pre>
       」のチェックボックスがグレーアウトしていることもあります
       (その場合は、チェック不要です)。また、3.13.X
       がインストールされている環境ではアップグレードを促す画面になるので、アップグレードをしてください。</p>
-      <div class="note type-caution">
-      <p><strong>以降のスクリーンショットは「3.11.4」のものです。適宜、読み替えてください。</strong></p>
-      </div>
       <figure>
       <img src="figs/09/py_inst_01.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
@@ -706,8 +712,20 @@ RemoteSigned</code></pre>
       プロジェクトフォルダの作成</h2>
       <p>エクスプローラを開き、ドキュメンフォルダのなかに
       <code>2025-Programming1</code>
-      を作成し、そのなかに移動します。今後は、この
-      <code>2025-Programming1</code> フォルダの内部に
+      を作成し、そのなかに移動してください。</p>
+      <div class="note type-tips">
+      <p><strong>ドキュメントフォルダをOneDrive同期している場合は…</strong></p>
+      <p><a
+      href="lecture09.html#準備">準備のセクション</a>で説明したように「<strong>ドキュメントフォルダ
+      をOneDrive同期している場合</strong>」は、<code>C:\Projects</code>
+      を作成して、そこに <code>2025-Programming1</code>
+      フォルダを作成してください。</p>
+      <figure>
+      <img src="figs/09/vs-code-26.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      </div>
+      <p>今後は、この <code>2025-Programming1</code> フォルダの内部に
       <strong>各種プロジェクトフォルダ</strong>
       を作成して管理していきます。</p>
       <figure>
@@ -715,7 +733,18 @@ RemoteSigned</code></pre>
       <figcaption aria-hidden="true">img</figcaption>
       </figure>
       <p><strong>第09回講義</strong>ということで、<code>PG1-09</code>
-      という名前のプロジェクトフォルダを作成してください。</p>
+      という名前のプロジェクトフォルダを作成してください。なお、上記スクリーンしょっとにおいて、エクスプローラのアドレスバーの表示が
+      <code>ドキュメント &gt; 2025-Programming1</code>
+      となっていますが、実際のパスは
+      <code>C:\Users\&lt;ユーザ名&gt;\Documents\2025-Programming1\</code>
+      です。</p>
+      <div class="note type-caution">
+      <p><strong>プロジェクトフォルダのパスに日本語や記号を含まないように注意</strong></p>
+      <p>プロジェクトフォルダを
+      <code>C:\Users\wada\Documents\授業\2年\プログラミング1\PG1-09</code>
+      のような<strong>日本語を含むパスに作成すると、不具合の原因</strong>になります。そのようなケースは、授業でのサポート範囲外となるので注意してください
+      (すべて自己解決できるのであれば問題ありません)。</p>
+      </div>
       <p>作成したフォルダを選択して
       <strong>「Shift」を押下しながら右クリック</strong>
       して「<strong>Codeで開く</strong>」を選択してください。これにより、VSCode
@@ -761,6 +790,10 @@ RemoteSigned</code></pre>
       <p>ターミナルのプロンプトの先頭表示が <code>(.venv)</code>
       に変わっていることを確認します。仮想環境が有効化されているときは、このような表示になるので覚えておいてください。</p>
       <pre><code>(.venv) PS C:\Users\wada\Documents\2025-Programming1\PG1-09&gt; </code></pre>
+      <figure>
+      <img src="figs/09/vs-code-20.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
       <h2 data-number="6.3"
       id="pythonファイルの新規作成とコードの記述"><span
       class="header-section-number">6.3</span>
@@ -804,7 +837,7 @@ RemoteSigned</code></pre>
       (<code>.vscode/launch.json</code>)
       が自動作成されます。特に編集することはないので、この
       <code>launch.json</code>
-      のタブは閉じてしまって問題ありません。</p>
+      のタブは閉じてしまって問題ありません。保存するか尋ねられたときは、保存してください。</p>
       <figure>
       <img src="figs/09/vs-code-11.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
@@ -834,48 +867,67 @@ RemoteSigned</code></pre>
       <p>ローカル環境に構築したPython環境でも、Jupyter (ジュピター)
       という GoogleColab と同様のノートブック開発が利用できます
       (もともと Jupyter が先にあって、それをクラウド化したものが Colab
-      になります )。</p>
+      というサービスです)。</p>
       <h2 data-number="7.1" id="ライブラリのインストール"><span
       class="header-section-number">7.1</span>
       ライブラリのインストール</h2>
       <p>Jupyterの実行に必要なライブラリを <code>pip</code>
       コマンドでインストールします。VSCodeのターミナル
-      (<code>Ctrl+J</code>で起動) から次のコマンドを実行します。</p>
+      (<code>Ctrl+J</code>で起動)
+      から次のコマンドを実行してください。</p>
       <pre><code>pip install jupyter</code></pre>
-      <p>これにより、jupyter
-      に関連するライブラリが仮想環境にインストールされます(多数のライブラリをインストールするので、そこそこの時間がかかります)。インストールされたライブラリは、次のように確認できます。</p>
+      <p>これにより、Jupyter
+      に関連するライブラリが仮想環境にインストールされます
+      (多数のライブラリをインストールするので、そこそこの時間がかかります)。インストールされたライブラリは、次のように確認できます。</p>
       <pre><code>pip list</code></pre>
-      <p>様々なライブラリがインストールされたことが確認できます。一方で、別途、VSCode外でターミナルを開いて
+      <p>Jupyter
+      の実行に必要な様々なライブラリがインストールされたことが確認できます。</p>
+      <figure>
+      <img src="figs/09/vs-code-21.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>一方で、別途、<strong>VSCode外でターミナルを開いて</strong>
       <code>pip list</code>
-      を実行すれば、仮想環境でのライブラリのインストールの影響を受けていないことが確認できます。</p>
+      を実行してみてください。仮想環境のなかでインストールしたライブラリの影響を受けていないことが確認できます
+      (Pythonの「グローバル環境」は <strong>クリーンな状態</strong>
+      であることが確認できます)。</p>
+      <figure>
+      <img src="figs/09/vs-code-22.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
       <h2 data-number="7.2" id="ノートブックの新規作成と実行"><span
       class="header-section-number">7.2</span>
       ノートブックの新規作成と実行</h2>
       <p>Jupyter 用に <code>test-02.ipynb</code>
-      を新規作成します。また、さきほど、同様にプログラムを記述します。ノートブック環境なので
-      <code>%reset -f</code> も利用できます。</p>
+      というファイルを新規作成します。そして、「<strong>コードセル</strong>」を追加し<a
+      href="lecture09.html#pythonファイルの新規作成とコードの記述">さきほどと同様のプログラム</a>
+      を記述します。ノートブック環境なので <code>%reset -f</code>
+      も利用できます。</p>
       <figure>
       <img src="figs/09/vs-code-13.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
       </figure>
-      <p>初回実行時には、上記の❸の「カーネルの選択」、❹の「Python環境…」の選択、以下の「.venv」の選択が必要です。</p>
+      <p>初回実行時には、上記の❸の「<strong>カーネルの選択</strong>」、❹の「<strong>Python環境…</strong>」の選択、以下の「<strong>.venv</strong>」の選択が必要です。</p>
       <figure>
       <img src="figs/09/vs-code-14.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
       </figure>
-      <p>以降は、GoogleColab. と同じように、セルを選択して
+      <p>以降は、GoogleColab. と同じように、コードセルを選択して
       <code>Ctrl+Enter</code> でプログラムを実行することができます。</p>
       <h2 data-number="7.3" id="注意点"><span
       class="header-section-number">7.3</span> 注意点</h2>
       <p><code>input()</code>
-      を使った「文字列の入力受付け」は、VSCodeの画面上部に表示されるので注意してください。</p>
+      を使った「<strong>文字列の入力</strong>」は <span
+      class="masked">VSCodeの画面上部</span>
+      に表示されるので注意してください。</p>
       <figure>
       <img src="figs/09/vs-code-15.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
       </figure>
-      <p>セル移動は、<strong>以下の部分をクリック</strong>してから
+      <p>セルの上下移動は、<strong>以下の部分をクリック</strong>してから
       <code>Alt</code> + <code>↑</code>、<code>Alt</code> +
-      <code>↓</code> で移動ができます。</p>
+      <code>↓</code>
+      で行ないます。マウスのドラッグでうまくいかない場合があります。</p>
       <figure>
       <img src="figs/09/vs-code-16.png" alt="img" />
       <figcaption aria-hidden="true">img</figcaption>
@@ -888,7 +940,7 @@ RemoteSigned</code></pre>
 
       ```python{.numberLines}
       import pygame.examples.aliens
-      pygame.examples.aliens.main()
+      pygame.examples.aliens.main()]
       ```
 
       ```python{.numberLines}
@@ -897,6 +949,35 @@ RemoteSigned</code></pre>
       ```
 
       http://westplain.sakura.ne.jp/translate/pygame/Examples.cgi -->
+      <h2 data-number="7.4" id="作業の再開"><span
+      class="header-section-number">7.4</span> 作業の再開</h2>
+      <p>VSCode
+      を終了して、再度、作業を再開する際には次のことに注意してください。</p>
+      <p>(以下、普段から VSCode を使って Python
+      開発している人は無視してください)</p>
+      <p>VSCode
+      で作業を再開するときは、以下のようにエクスプローラで「<strong>PG1-09</strong>」のフォルダを選択し、Shiftを押下しながら右クリックで「Codeで開く」を選択する手順を踏んでください。それ以外の方法で再開した場合、<span
+      class="masked">仮想環境が有効にならないこと</span>
+      があるので注意してください。</p>
+      <figure>
+      <img src="figs/09/vs-code-23.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>VSCode で「<strong>Python
+      の仮想環境が適切に有効化されているか</strong>」は以下の手順で確認できます。</p>
+      <figure>
+      <img src="figs/09/vs-code-24.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <div class="note type-caution">
+      <p><strong>プロジェクトフォルダを適切にオープンしていない例</strong></p>
+      <p>以下の図のように、<code>.venv</code>
+      を直下に持たないフォルダをオープンすると<strong>仮想環境が有効化されません</strong>。</p>
+      <figure>
+      <img src="figs/09/vs-code-25.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      </div>
       <h1 data-number="8" id="演習"><span
       class="header-section-number">8</span> 演習</h1>
       <p>繰返し練習してください。</p>
