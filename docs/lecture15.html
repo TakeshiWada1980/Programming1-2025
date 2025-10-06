@@ -58,7 +58,7 @@ class="toc-section-number">1.4</span> 定着確認</a></li>
 </ul></li>
 <li><a href="#コマンドラインによる-gitgithub-の操作"
 id="toc-コマンドラインによる-gitgithub-の操作"><span
-class="toc-section-number">2</span> コマンドラインによる git/GitHub
+class="toc-section-number">2</span> コマンドラインによる Git/GitHub
 の操作</a>
 <ul>
 <li><a href="#プロジェクトフォルダの作成"
@@ -127,12 +127,13 @@ class="toc-section-number">5</span> 宿題</a></li>
       <h2 data-number="1.1" id="連絡"><span
       class="header-section-number">1.1</span> 連絡</h2>
       <p>3年生では<a
-      href="https://takeshiwada1980.github.io/Programming3-2025/">プログラミング3</a>(ウェブアプリ開発)がはじまりました。興味・関心のある学生は、先取りして勉強ください。</p>
+      href="https://takeshiwada1980.github.io/Programming3-2025/">プログラミング3</a>(ウェブアプリ開発)がはじまりました。また、4年生では<a
+      href="https://takeshiwada1980.github.io/DB-2025/">データベース工学</a>がはじまりました。興味・関心のある学生は、開講を待たずに先取りして勉強ください。</p>
       <h2 data-number="1.2" id="gitgithub-の学習について"><span
       class="header-section-number">1.2</span> Git/GitHub
       の学習について</h2>
       <p>Git / GitHub の理解や活用は
-      <strong>初心者にとっては非常に難しいもの</strong>
+      <strong>初学者にとっては非常に難しいもの</strong>
       です。実際に、講師自身も非常に苦労した記憶があります。実際問題として
       <span
       class="masked">ある程度の時間を空けて3回ほど学びなおしてみて、やっと腑に落ちる</span>
@@ -140,8 +141,8 @@ class="toc-section-number">5</span> 宿題</a></li>
       <p>とはいえ<strong>開発現場
       (例えば開発系の就職やインターンシップなど)
       では必須のスキル</strong>なので、難しいからという理由で学習を避けるわけにもいきません。それに、少なくとも1回目の「学び」をしなければ、３回目の「学び」での腹落ちもあり得ません。頑張ってください。</p>
-      <p>なお、おすすめ学習法は、分からないなりにも積極的に Git/GitHub
-      を利用していくことです。</p>
+      <p>なお、おすすめ学習法は、<strong>分からないなりにも積極的に
+      Git/GitHub を利用していくこと</strong> です。</p>
       <p>例えば、<span class="masked">インスタ (Instagram)
       でも「フィールド」「ストーリー」「リール」「ハッシュタグ」「メンション」「DM」「シェア」「タイムライン」「いいね」「コメント」「アクティビティ」「エンゲージメント」「リーチ」「インサイト」</span>
       などの「操作」や「概念・用語」がありますが、分からないなりに日常的に使っていくうちに自然と覚えたり理解できるようになった思います。また、実際問題として、最低限の利用で必要な操作や概念は、かなり限られています。</p>
@@ -150,7 +151,8 @@ class="toc-section-number">5</span> 宿題</a></li>
       class="header-section-number">1.3</span> 復習</h2>
       <p><a href="lecture14.html">前回講義</a>では
       <strong><em>Git/GitHub</em></strong>
-      に関連して次のような内容を取り上げました。<strong>今回の講義内容は、以下の操作が「資料」を見なくてもできることを前提</strong>とします。</p>
+      に関連して次のような内容を取り上げました。<strong>今回の講義内容は、以下の操作が「資料」を見なくてもできることを前提</strong>
+      としています。</p>
       <ol type="1">
       <li>PCのローカルストレージに「プロジェクトフォルダ」を新規作成して
       VSCode でオープンすること。👉<a
@@ -166,17 +168,20 @@ class="toc-section-number">5</span> 宿題</a></li>
       <code>.git</code> というフォルダ (隠しフォルダ属性)
       が作成され、プロジェクトフォルダが
       <strong>ローカルリポジトリ</strong>
-      としてGitの管理下におかれるようになります。Gitの管理下にあるフォルダでは、ファイルやフォルダの追加・削除・変更などが
+      としてGitの管理下におかれるようになります。</li>
+      <li>Gitの管理下にあるフォルダでは、ファイルやフォルダの追加・削除・変更などが
       Git により追跡されるようになります。</li>
       </ul></li>
-      <li>ローカルリポジトリにあるファイルの内容を編集して、それをVSCode上で「<strong>コミット</strong>」してリモートリポジトリに「<strong>プッシュ</strong>」すること。👉<a
+      <li>ローカルリポジトリにあるファイルの内容を編集して、それをVSCode上で「<strong>コミット</strong>」してリモートリポジトリ
+      (GitHub) に「<strong>プッシュ</strong>」すること。👉<a
       href="lecture14.html#ファイルを変更してコミットプッシュ">参考</a>
       <ul>
       <li>ここではバックグラウンドで <code>git commit</code> コマンドや
       <code>git push</code>
       コマンドに相当する処理が行なわれています。</li>
       </ul></li>
-      <li>リモートリポジトリの内容をウェブブラウザから確認すること。</li>
+      <li>リモートリポジトリ (GitHub)
+      の内容をウェブブラウザから確認すること。</li>
       <li>リモートリポジトリにあるファイルをウェブブラウザから直接編集して
       <strong>コミット</strong> すること。👉<a
       href="lecture14.html#リモートリポジトリでのファイル変更と同期">参考</a></li>
@@ -230,10 +235,12 @@ class="toc-section-number">5</span> 宿題</a></li>
       <li>リモートリポジトリの内容をローカルリポジトリにダウンロードして統合する操作を
       <span class="masked">プル (pull)</span> という。</li>
       </ul>
+      <p>各種 Git
+      コマンドについても、機能概要を把握しておいてください。</p>
       <h1 data-number="2"
       id="コマンドラインによる-gitgithub-の操作"><span
       class="header-section-number">2</span> コマンドラインによる
-      git/GitHub の操作</h1>
+      Git/GitHub の操作</h1>
       <p>前回の講義では VSCode の GUI (=Graphical User Interface)
       を通じて Git を操作する方法を学びました。</p>
       <p>実務においてもコミットやプッシュなどの<strong>単純操作</strong>については
@@ -622,13 +629,14 @@ nothing to commit, working tree clean</code></pre>
       <strong><em>プッシュ</em></strong> (アップロード)
       していきます。</p>
       <p>準備として <a href="https://github.co.jp/">GitHub</a>
-      にログインして <code>GitHub-Test-2</code>
-      という空のリポジトリを作成します。基本的にはプロジェクトフォルダ
+      にログインして <code>GitHub-Test-2</code> という
+      <strong><em>空のリポジトリ</em></strong>
+      を作成しておきます。基本的にはプロジェクトフォルダ
       (ローカルリポジトリ)
       と同じ名前にしておくことがお勧めですが、違う名前を設定することもできます。</p>
       <p>GitHub で <strong>空のリポジトリ</strong>
-      を作成する方法についてはウェブの情報を参照してください。作成時には<span
-      class="masked">「Add a README
+      を作成する方法についてはウェブの情報を参照してください。作成時には
+      <span class="masked">「Add a README
       file」のオプションにチェックを入れない</span>
       ように注意してください。また「<strong>Public</strong>」なリポジトリとしてください。</p>
       <div class="note type-caution">
@@ -636,6 +644,13 @@ nothing to commit, working tree clean</code></pre>
       <p>ここで新規作成するリモートリポジトリには <code>.gitkeep</code>
       や <code>.gitignor</code>、<code>README.md</code>
       なども一切含まれない<strong>完全に「空」のリポジトリとしてください</strong>。何らかのファイルを含む場合、以下の「プッシュ」のステップで失敗する可能性があります。</p>
+      <p>次のように、設定すれば完全に
+      <strong>空のリモートリポジトリ</strong>
+      を作成することができます。</p>
+      <figure>
+      <img src="figs/15/github-01.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
       </div>
       <p>作成したリモートリポジトリの URL
       <code>https://github.com/zzzz/GitHub-Test-2.git</code>
@@ -1547,9 +1562,9 @@ branch &#39;main&#39; set up to track &#39;origin/main&#39;.</code></pre>
       <p>講義時間内に終わらなかった内容に取り組んでください。また、2～3日程度の時間をおいてから再度、復習してください。次回の講義は
       <strong>今回までの内容が定着していることを前提</strong>
       として進めます。</p>
-      <p>次回講義では、git
+      <p>次回講義では、Git
       を使用して「プロジェクトフォルダの内容を過去のバージョンに戻す方法
-      (リストアする方法)」や「ブランチを作成・切り替える方法」「GitHubでコラボレーターを設定してチーム開発の環境を設定する方法」などを学習する予定です。</p>
+      (リストアする方法)」や「ブランチを作成・切り替える方法」「GitHubでコラボレータを設定してチーム開発の環境を設定する方法」などを学習する予定です。</p>
       <!-- ---------------------------------------- -->
     </main>
 
