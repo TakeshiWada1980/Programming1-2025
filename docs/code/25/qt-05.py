@@ -1,3 +1,5 @@
+import os
+import pickle
 import sys
 import random as r
 import datetime as dt
@@ -50,7 +52,27 @@ class MainWindow(Qw.QMainWindow):
     self.sb_status = Qw.QStatusBar()
     self.setStatusBar(self.sb_status)
     self.sb_status.setSizeGripEnabled(False)
-    self.sb_status.showMessage('プログラムを起動しました。')
+
+    # データファイルが存在すれば読み込む
+    self.data_file = './qt-05.dat'
+    if os.path.isfile(self.data_file):
+      with open(self.data_file, 'rb') as file:
+        data = pickle.load(file)
+        self.card_counts = data['card_counts']
+        self.charges = data['charges']
+        self.update_status()
+    else:
+      self.sb_status.showMessage('プログラムを起動しました。')
+
+  # 終了処理
+  def closeEvent(self, event):
+    with open(self.data_file, 'wb') as file:
+      data = {}
+      data['card_counts'] = self.card_counts
+      data['charges'] = self.charges
+      pickle.dump(data, file)
+      print('データファイルを更新セーブしました。')
+    event.accept()
 
   # 「実行」ボタンの押下処理
   def btn_run_clicked(self):
@@ -58,7 +80,7 @@ class MainWindow(Qw.QMainWindow):
     self.card_counts[idx] += 1  # カード所持数の更新
     self.charges += 300       # 課金総額の更新
 
-    # プログレスバーダイアログ (演出効果) の表示
+    # プログレスバーダイアログの表示
     gacha_msg = ['  ++++++  ガチャ抽選中  ++++++  ',
                  '  ------  ガチャ抽選中  ------  ']
     p_bar = Qw.QProgressDialog(gacha_msg[0], '', 0, 100, self)
